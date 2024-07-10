@@ -1,0 +1,10 @@
+20:12:56 **** Incremental Build of configuration Default for project fw ****
+make all 
+Wrapper for /home/faruk/st/stm32cubeide_1.16.0/plugins/com.st.stm32cube.ide.mpu.linux.toolchain_2.1.0.202305092038/tools/bin/make
+FIP_DEPLOYDIR_ROOT: /home/faruk/Desktop/projects/801.01/SOFTWARE/801.01_fw/801.01/CA7/fw/Default/../../FIP_artifacts
++ case "$command" in
++ exec make all
+make: Nothing to be done for 'all'.
+
+20:12:56 Build Finished. 0 errors, 0 warnings. (took 115ms)
+

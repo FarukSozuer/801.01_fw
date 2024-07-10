@@ -32,6 +32,9 @@
 #include "zed_cpu_info.h"
 #include "zed_rflink.h"
 #include "zed_serial_com.h"
+#include "libserialport.h"
+#include "fzd_stpmic1.h"
+
 
 /*
  * @brief
@@ -87,6 +90,7 @@ S_THREAD_ATTR gnThreadAttr[TOTAL_NUMBER_OF_THREAD] = {
 int main()
 {
 	uartInitialize();
+	initialize_stpmic();
 
 	pthread_t thread[TOTAL_NUMBER_OF_THREAD - 1];
 

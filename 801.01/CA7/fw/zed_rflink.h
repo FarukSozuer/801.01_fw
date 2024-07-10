@@ -31,6 +31,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+extern uint32_t counter;
 
 void* rflinkLoop(void* args);
 

@@ -1,0 +1,14 @@
+/*
+ * fzd_stpmic1.c
+ *
+ *  Created on: Jul 10, 2024
+ *      Author: faruk
+ */
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdint.h>
+#include <linux/i2c-dev.h>
+#include <sys/ioctl.h>
+#include <fcntl.h>

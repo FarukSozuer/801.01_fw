@@ -72,7 +72,6 @@ typedef struct
 	int32_t config_fd;
 	int32_t cli_fd;
 	int32_t null_fd;
-
 }serial_port_fd_type;
 
 extern serial_port_fd_type serial_port_fd;

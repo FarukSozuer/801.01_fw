@@ -1,0 +1,42 @@
+/*
+ * fzd_stpmic1.c
+ *
+ *  Created on: Jul 10, 2024
+ *      Author: faruk
+ */
+
+
+#include "fzd_stpmic1.h"
+
+int32_t stpmic_i2c_dev;
+
+void initialize_stpmic(void)
+{
+	const char file_name[] = "/dev/i2c-2";
+	int file;
+
+
+	if ((file = open(file_name,O_RDWR))<0)
+	{
+		printf("Failed i2c bus \r\n");
+		exit(1);
+	}
+	if (ioctl(file,I2C_SLAVE,STPMIC_DEVICE_ADDRESS) < 0)
+	{
+		printf("Failed to acquire bus access or talk to device\r\n");
+		exit(1);
+	}
+	else
+	{
+		stpmic_i2c_dev = dup(file);
+		close(file);
+	}
+}
+
+
+void read_stpmicVersion(void)
+{
+	uint8_t buf[5] = {0};
+
+	if(write(stpmic_i2c_dev, &reg_addr, 1) < 1)
+}

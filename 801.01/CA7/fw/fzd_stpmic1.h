@@ -1,0 +1,26 @@
+/*
+ * fzd_stpmic1.h
+ *
+ *  Created on: Jul 10, 2024
+ *      Author: faruk
+ */
+
+#ifndef FZD_STPMIC1_H_
+#define FZD_STPMIC1_H_
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdint.h>
+#include <linux/i2c-dev.h>
+#include <sys/ioctl.h>
+#include <fcntl.h>
+
+#define STPMIC_DEVICE_ADDRESS 0x28
+#define STPMIC_VERSION_REGISTER 0x06
+
+extern int32_t stpmic_i2c_dev;
+
+void initialize_stpmic(void);
+void read_stpmicVersion(uint8_t reg_add);
+
+#endif /* FZD_STPMIC1_H_ */

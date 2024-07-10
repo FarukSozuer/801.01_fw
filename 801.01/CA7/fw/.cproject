@@ -14,7 +14,7 @@
 				</extensions>
 			</storageModule>
 			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
-				<configuration artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe,org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug" cleanCommand="rm -rf" description="" id="com.st.stm32cube.ide.mpu.gnu.managedbuild.config.exe.debug.186739423" name="Default" parent="com.st.stm32cube.ide.mpu.gnu.managedbuild.config.exe.debug">
+				<configuration artifactExtension="" artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe,org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug" cleanCommand="rm -rf" description="" errorParsers="org.eclipse.cdt.core.GASErrorParser;org.eclipse.cdt.core.GmakeErrorParser;org.eclipse.cdt.core.GLDErrorParser;org.eclipse.cdt.core.CWDLocator;org.eclipse.cdt.core.GCCErrorParser" id="com.st.stm32cube.ide.mpu.gnu.managedbuild.config.exe.debug.186739423" name="Default" parent="com.st.stm32cube.ide.mpu.gnu.managedbuild.config.exe.debug">
 					<folderInfo id="com.st.stm32cube.ide.mpu.gnu.managedbuild.config.exe.debug.186739423." name="/" resourcePath="">
 						<toolChain id="com.st.stm32cube.ide.mpu.gnu.managedbuild.toolchain.exe.debug.430146017" name="OpenSTLinux SDK" superClass="com.st.stm32cube.ide.mpu.gnu.managedbuild.toolchain.exe.debug">
 							<option id="com.st.stm32cube.ide.mpu.option.sdkversion.485693020" name="SDK Version" superClass="com.st.stm32cube.ide.mpu.option.sdkversion" value="openstlinux-6.1-yocto-mickledore-mpu-v24.06.26" valueType="string"/>
@@ -29,6 +29,7 @@
 								<option id="com.st.stm32cube.ide.mpu.gnu.managedbuild.tool.c.compiler.option.optimization.level.19854669" name="Optimization level" superClass="com.st.stm32cube.ide.mpu.gnu.managedbuild.tool.c.compiler.option.optimization.level" useByScannerDiscovery="false" value="com.st.stm32cube.ide.mpu.gnu.managedbuild.tool.c.compiler.option.optimization.level.value.og" valueType="enumerated"/>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.st.stm32cube.ide.mpu.gnu.managedbuild.tool.c.compiler.option.includepaths.387161931" name="Include paths (-I)" superClass="com.st.stm32cube.ide.mpu.gnu.managedbuild.tool.c.compiler.option.includepaths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="pthread"/>
+									<listOptionValue builtIn="false" value="libgpiod"/>
 									<listOptionValue builtIn="false" value="m"/>
 								</option>
 								<inputType id="com.st.stm32cube.ide.mpu.gnu.managedbuild.tool.c.compiler.input.c.750503927" superClass="com.st.stm32cube.ide.mpu.gnu.managedbuild.tool.c.compiler.input.c"/>

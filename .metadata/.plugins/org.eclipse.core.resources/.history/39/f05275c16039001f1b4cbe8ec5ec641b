@@ -1,0 +1,239 @@
+/**
+ ******************************************************************************
+  * @file		: ZED_serial_com.c
+  * @brief		: Task scheduler source file
+  *				  This file contains task structure of the application
+  * @author		: Faruk Sozuer
+  * @date		: 25.04.2024
+  * @version	: 0.0.1
+ ******************************************************************************
+  * @attention
+  *
+  * <h2><center>&copy; Copyright (c) 2024 ZED TECH, All Rights Reserved </center></h2>
+  *
+  * All information contained herein is, and remains the property of ZED TECH. The
+  * intellectual and technical concepts contained herein are proprietary to ZED TECH
+  * and are protected by trade secret or copyright law. Dissemination of this
+  * information or reproduction of this material is strictly forbidden unless
+  * prior written permission is obtained from ZED TECH.  Access to the source code
+  * contained herein is hereby forbidden to anyone except current ZED TECH employees,
+  * managers or contractors who have executed Confidentiality and Non-disclosure
+  * agreements explicitly covering such access.
+  *
+ ******************************************************************************
+  */
+
+
+#include "zed_serial_com.h"
+
+#include "zed_common_def.h"
+#include "zed_uart.h"
+#include "main.h"
+#include "term.h"
+
+void* readDataSerialPort(void *args)
+{
+	set_schedular_info((PS_THREAD_ATTR)args);
+	int epoll_fd, ret;
+	struct epoll_event ev, event;
+	size_t bytes_avail = 0;
+	size_t bytes_read = 0;
+	uint8_t buffer[4096];
+
+	epoll_fd = epoll_create1(0);
+
+	if( epoll_fd < 0)
+	{
+		perror("epoll_create\n");
+	}
+
+	ev.data.fd = serial_port_fd.data_fd;
+	ev.events = (EPOLLIN);
+
+	if(epoll_ctl(epoll_fd, EPOLL_CTL_ADD, serial_port_fd.data_fd, &ev))
+	{
+		perror("Failed to add file descriptor to epoll\n");
+	}
+
+	while(1)
+	{
+     	ret = epoll_wait(epoll_fd, &event, 1, 250);
+
+		if(ret < 0)
+		{
+			perror("epoll wait \n");
+			close(epoll_fd);
+
+			epoll_fd = epoll_create1(0);
+
+			if( epoll_fd < 0)
+			{
+				perror("epoll_create\n");
+			}
+
+			ev.data.fd = serial_port_fd.data_fd;
+			ev.events = (EPOLLIN);
+
+			if(epoll_ctl(epoll_fd, EPOLL_CTL_ADD,serial_port_fd.data_fd, &ev))
+			{
+				perror("Failed to add file descriptor to epoll\n");
+			}
+		}
+		else if(ret > 0)
+		{
+			bytes_avail = 0;
+			ioctl(serial_port_fd.data_fd, FIONREAD, &bytes_avail);
+
+			if(bytes_avail > sizeof(buffer))
+			{
+				bytes_avail = sizeof(buffer);
+			}
+
+			bytes_read = read(event.data.fd, buffer, bytes_avail);
+
+			if(bytes_read > 0)
+			{
+				write(serial_port_fd.data_fd, buffer, bytes_avail);
+			}
+		}
+	}
+}
+
+
+
+void* readConfigSerialPort(void *args)
+{
+	set_schedular_info((PS_THREAD_ATTR)args);
+	int epoll_fd, ret;
+	struct epoll_event ev, event;
+	size_t bytes_avail = 0;
+	size_t bytes_read = 0;
+	uint8_t buffer[4096];
+
+	epoll_fd = epoll_create1(0);
+
+	if( epoll_fd < 0)
+	{
+		perror("epoll_create\n");
+	}
+
+	ev.data.fd = serial_port_fd.config_fd;
+	ev.events = (EPOLLIN);
+
+	if(epoll_ctl(epoll_fd, EPOLL_CTL_ADD, serial_port_fd.config_fd, &ev))
+	{
+		perror("Failed to add file descriptor to epoll\n");
+	}
+
+	while(1)
+	{
+     	ret = epoll_wait(epoll_fd, &event, 1, 250);
+
+		if(ret < 0)
+		{
+			perror("epoll wait \n");
+			close(epoll_fd);
+
+			epoll_fd = epoll_create1(0);
+
+			if( epoll_fd < 0)
+			{
+				perror("epoll_create\n");
+			}
+
+			ev.data.fd = serial_port_fd.config_fd;
+			ev.events = (EPOLLIN);
+
+			if(epoll_ctl(epoll_fd, EPOLL_CTL_ADD,serial_port_fd.config_fd, &ev))
+			{
+				perror("Failed to add file descriptor to epoll\n");
+			}
+		}
+		else if(ret > 0)
+		{
+			bytes_avail = 0;
+			ioctl(serial_port_fd.config_fd, FIONREAD, &bytes_avail);
+
+			if(bytes_avail > sizeof(buffer))
+			{
+				bytes_avail = sizeof(buffer);
+			}
+
+			bytes_read = read(event.data.fd, buffer, bytes_avail);
+
+			if(bytes_read > 0)
+			{
+				write(serial_port_fd.config_fd, buffer, bytes_avail);
+			}
+		}
+	}
+}
+
+
+void* readCliSerialPort(void *args)
+{
+	set_schedular_info((PS_THREAD_ATTR)args);
+	int epoll_fd, ret;
+	struct epoll_event ev, event;
+	size_t bytes_avail = 0;
+	size_t bytes_read = 0;
+	uint8_t buffer[4096];
+
+	epoll_fd = epoll_create1(0);
+
+	if( epoll_fd < 0)
+	{
+		perror("epoll_create\n");
+	}
+
+	ev.data.fd = serial_port_fd.cli_fd;
+	ev.events = (EPOLLIN);
+
+	if(epoll_ctl(epoll_fd, EPOLL_CTL_ADD, serial_port_fd.cli_fd, &ev))
+	{
+		perror("Failed to add file descriptor to epoll\n");
+	}
+
+	while(1)
+	{
+     	ret = epoll_wait(epoll_fd, &event, 1, 250);
+
+		if(ret < 0)
+		{
+			perror("epoll wait \n");
+			close(epoll_fd);
+
+			epoll_fd = epoll_create1(0);
+
+			if( epoll_fd < 0)
+			{
+				perror("epoll_create\n");
+			}
+
+			ev.data.fd = serial_port_fd.cli_fd;
+			ev.events = (EPOLLIN);
+
+			if(epoll_ctl(epoll_fd, EPOLL_CTL_ADD,serial_port_fd.cli_fd, &ev))
+			{
+				perror("Failed to add file descriptor to epoll\n");
+			}
+		}
+		else if(ret > 0)
+		{
+			bytes_avail = 0;
+			ioctl(serial_port_fd.cli_fd, FIONREAD, &bytes_avail);
+
+			if(bytes_avail > sizeof(buffer))
+			{
+				bytes_avail = sizeof(buffer);
+			}
+
+			bytes_read = read(event.data.fd, buffer, bytes_avail);
+
+			if(bytes_read > 0)
+			{
+				write(serial_port_fd.cli_fd, buffer, bytes_avail);
+			}
+		}
+	}
+}

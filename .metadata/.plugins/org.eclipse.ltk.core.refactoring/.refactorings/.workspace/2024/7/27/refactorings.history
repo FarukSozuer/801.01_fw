@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Delete 6 resources" deleteContents="false" description="Delete 6 resources" element1="/fw/zed_ad9361.c" element2="/fw/zed_ad9361.h" element3="/fw/zed_axi_config.c" element4="/fw/zed_axi_config.h" element5="/fw/zed_iio.c" element6="/fw/zed_iio.h" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="6" stamp="1720027337545"/>&#x0A;<refactoring comment="Delete 3 resources" deleteContents="false" description="Delete 3 resources" element1="/fw/zed_rflink.c" element2="/fw/zed_xadc.c" element3="/fw/zed_xadc.h" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="3" stamp="1720027372157"/>
+</session>

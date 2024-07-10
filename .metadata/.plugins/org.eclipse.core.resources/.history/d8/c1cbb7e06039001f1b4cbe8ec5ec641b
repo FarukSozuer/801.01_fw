@@ -1,0 +1,57 @@
+/**
+ ******************************************************************************
+  * @file		: ZED_xadc.h
+  * @brief		: XADC header file
+  *				  This file contains task structure of the application
+  * @author		: Faruk Sozuer
+  * @date		: 20.04.2024
+  * @version	: 0.0.1
+ ******************************************************************************
+  * @attention
+  *
+  * <h2><center>&copy; Copyright (c) 2024 ZED TECH, All Rights Reserved </center></h2>
+  *
+  * All information contained herein is, and remains the property of ZED TECH. The
+  * intellectual and technical concepts contained herein are proprietary to ZED TECH
+  * and are protected by trade secret or copyright law. Dissemination of this
+  * information or reproduction of this material is strictly forbidden unless
+  * prior written permission is obtained from ZED TECH.  Access to the source code
+  * contained herein is hereby forbidden to anyone except current ZED TECH employees,
+  * managers or contractors who have executed Confidentiality and Non-disclosure
+  * agreements explicitly covering such access.
+  *
+ ******************************************************************************
+  */
+#ifndef ZED_XADC_XADC_H_
+#define ZED_XADC_XADC_H_
+
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+typedef struct
+{
+	float temperature;
+	float vcc_aux;
+	float vcc_bram;
+	float vccp_int;
+	float vccp_aux;
+	float vcco_ddr;
+	float vref_p;
+	float vref_n;
+}xadc_value_type;
+
+
+int32_t xadcInit(void);
+int32_t xadcGetTemperature(float *temperature);
+int32_t xadcGetVccInt(float *voltage);
+int32_t xadcGetVccAux(float *voltage);
+int32_t xadcGetVccBram(float *voltage);
+int32_t xadcGetVccpInt(float *voltage);
+int32_t xadcGetVccpAux(float *voltage);
+int32_t xadcGetVccDdr(float *voltage);
+
+extern xadc_value_type xadc_value;
+
+#endif /* ZED_XADC_XADC_H_ */

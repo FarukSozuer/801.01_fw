@@ -26,12 +26,21 @@
 #include "zed_common_def.h"
 #include "zed_cpu_info.h"
 #include "zed_uart.h"
-
-
+#include <errno.h>
+#include <fcntl.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <sys/ioctl.h>
+#include <unistd.h>
+#include <linux/gpio.h>
+#include "zed_rflink.h"
+#include "fzd_stpmic1.h"
 
 int64_t temp;
-
-
+int32_t fd_gpio;
+int32_t ret;
+uint32_t counter;
 
 /*
  * @brief
@@ -44,9 +53,19 @@ void* rflinkLoop(void* args)
 {
 	set_schedular_info((PS_THREAD_ATTR)args);
 
+	struct gpiohandle_request req;
+	struct gpiohandle_data data;
+	char chrdev_name[20];
+
+	strcpy(chrdev_name, "/dev/gpiochip0");
+
+	/*  Open device: gpiochip0 for GPIO bank A */
+	fd_gpio = open(chrdev_name, 0);
+
 	while(1)
 	{
-
+		counter++;
+		read_stpmicVersion(STPMIC_VERSION_REGISTER);
 		printf("RF Link Thread %5.2f\r\n",get_used_cpu());
 		sleep(1);
 	}
