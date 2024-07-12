@@ -2861,3 +2861,1270 @@ FIP_DEPLOYDIR_ROOT: /home/faruk/Desktop/projects/801.01/SOFTWARE/801.01_fw/801.0
 + case "$command" in
 + exec make all
 make: Nothing to be done for 'all'.
+20:13:58 **** Incremental Build of configuration Debug for project 801.01_CM4 ****
+make -j32 all 
+arm-none-eabi-size  801.01_CM4.elf 
+   text	   data	    bss	    dec	    hex	filename
+  33416	    288	   2172	  35876	   8c24	801.01_CM4.elf
+Finished building: default.size.stdout
+ 
+20:13:58 **** Incremental Build of configuration Default for project fw ****
+make all 
+Wrapper for /home/faruk/st/stm32cubeide_1.16.0/plugins/com.st.stm32cube.ide.mpu.linux.toolchain_2.1.0.202305092038/tools/bin/make
+FIP_DEPLOYDIR_ROOT: /home/faruk/Desktop/projects/801.01/SOFTWARE/801.01_fw/801.01/CA7/fw/Default/../../FIP_artifacts
++ case "$command" in
++ exec make all
+Building file: ../fzd_stpmic1.c
+Invoking: MPU GCC Compiler
+arm-ostl-linux-gnueabi-gcc  -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 --sysroot=/opt/st/stm32mp1/4.2.4-openstlinux-6.1-yocto-mickledore-mpu-v24.06.26/sysroots/cortexa7t2hf-neon-vfpv4-ostl-linux-gnueabi "../fzd_stpmic1.c" -std=gnu11 -g3 -c -Ipthread -Ilibgpiod -Im -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"fzd_stpmic1.d" -MT"fzd_stpmic1.o" -o "fzd_stpmic1.o"
+../fzd_stpmic1.c: In function ‘initialize_stpmic’:
+../fzd_stpmic1.c:31:34: warning: implicit declaration of function ‘dup’ [-Wimplicit-function-declaration]
+   31 |                 stpmic_i2c_dev = dup(file);
+      |                                  ^~~
+../fzd_stpmic1.c:32:17: warning: implicit declaration of function ‘close’; did you mean ‘pclose’? [-Wimplicit-function-declaration]
+   32 |                 close(file);
+      |                 ^~~~~
+      |                 pclose
+../fzd_stpmic1.c: In function ‘read_stpmicVersion’:
+../fzd_stpmic1.c:41:12: warning: implicit declaration of function ‘write’; did you mean ‘fwrite’? [-Wimplicit-function-declaration]
+   41 |         if(write(stpmic_i2c_dev, &reg_add, 1) < 1)
+      |            ^~~~~
+      |            fwrite
+../fzd_stpmic1.c:46:12: warning: implicit declaration of function ‘read’; did you mean ‘fread’? [-Wimplicit-function-declaration]
+   46 |         if(read(stpmic_i2c_dev, buf, 1) < 0)
+      |            ^~~~
+      |            fread
+Finished building: ../fzd_stpmic1.c
+ 
+Building target: fw
+Invoking: MPU GCC Linker
+arm-ostl-linux-gnueabi-gcc  -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 --sysroot=/opt/st/stm32mp1/4.2.4-openstlinux-6.1-yocto-mickledore-mpu-v24.06.26/sysroots/cortexa7t2hf-neon-vfpv4-ostl-linux-gnueabi -o "fw" ./cJSON.o ./fzd_stpmic1.o ./main.o ./zed_cpu_info.o ./zed_gpio.o ./zed_rflink.o ./zed_serial_com.o ./zed_spi.o ./zed_timing.o ./zed_uart.o ./zed_uio.o    -Wl,-Map="fw.map" -Wl,--gc-sections
+Finished building target: fw
+ 
+23:39:59 **** Incremental Build of configuration Default for project fw ****
+make all 
+Wrapper for /home/faruk/st/stm32cubeide_1.16.0/plugins/com.st.stm32cube.ide.mpu.linux.toolchain_2.1.0.202305092038/tools/bin/make
+FIP_DEPLOYDIR_ROOT: /home/faruk/Desktop/projects/801.01/SOFTWARE/801.01_fw/801.01/CA7/fw/Default/../../FIP_artifacts
++ case "$command" in
++ exec make all
+make: Nothing to be done for 'all'.
+23:40:33 **** Incremental Build of configuration Debug for project 801.01_CM4 ****
+make -j32 all 
+arm-none-eabi-size  801.01_CM4.elf 
+   text	   data	    bss	    dec	    hex	filename
+  33416	    288	   2172	  35876	   8c24	801.01_CM4.elf
+Finished building: default.size.stdout
+ 
+23:40:33 **** Incremental Build of configuration Default for project fw ****
+make all 
+Wrapper for /home/faruk/st/stm32cubeide_1.16.0/plugins/com.st.stm32cube.ide.mpu.linux.toolchain_2.1.0.202305092038/tools/bin/make
+FIP_DEPLOYDIR_ROOT: /home/faruk/Desktop/projects/801.01/SOFTWARE/801.01_fw/801.01/CA7/fw/Default/../../FIP_artifacts
++ case "$command" in
++ exec make all
+Building file: ../zed_rflink.c
+Invoking: MPU GCC Compiler
+arm-ostl-linux-gnueabi-gcc  -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 --sysroot=/opt/st/stm32mp1/4.2.4-openstlinux-6.1-yocto-mickledore-mpu-v24.06.26/sysroots/cortexa7t2hf-neon-vfpv4-ostl-linux-gnueabi "../zed_rflink.c" -std=gnu11 -g3 -c -Ipthread -Ilibgpiod -Im -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"zed_rflink.d" -MT"zed_rflink.o" -o "zed_rflink.o"
+../zed_rflink.c: In function ‘rflinkLoop’:
+../zed_rflink.c:69:69: error: invalid use of void expression
+   69 |                 printf("RF Link Thread %5.2f %x\r\n",get_used_cpu(),read_stpmicVersion(STPMIC_VERSION_REGISTER));
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../zed_rflink.c:57:32: warning: unused variable ‘data’ [-Wunused-variable]
+   57 |         struct gpiohandle_data data;
+      |                                ^~~~
+../zed_rflink.c:56:35: warning: unused variable ‘req’ [-Wunused-variable]
+   56 |         struct gpiohandle_request req;
+      |                                   ^~~
+make: *** [subdir.mk:50: zed_rflink.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+23:40:35 **** Incremental Build of configuration Debug for project 801.01_CM4 ****
+make -j32 all 
+arm-none-eabi-size  801.01_CM4.elf 
+   text	   data	    bss	    dec	    hex	filename
+  33416	    288	   2172	  35876	   8c24	801.01_CM4.elf
+Finished building: default.size.stdout
+ 
+23:40:35 **** Incremental Build of configuration Default for project fw ****
+make all 
+Wrapper for /home/faruk/st/stm32cubeide_1.16.0/plugins/com.st.stm32cube.ide.mpu.linux.toolchain_2.1.0.202305092038/tools/bin/make
+FIP_DEPLOYDIR_ROOT: /home/faruk/Desktop/projects/801.01/SOFTWARE/801.01_fw/801.01/CA7/fw/Default/../../FIP_artifacts
++ case "$command" in
++ exec make all
+Building file: ../zed_rflink.c
+Invoking: MPU GCC Compiler
+arm-ostl-linux-gnueabi-gcc  -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 --sysroot=/opt/st/stm32mp1/4.2.4-openstlinux-6.1-yocto-mickledore-mpu-v24.06.26/sysroots/cortexa7t2hf-neon-vfpv4-ostl-linux-gnueabi "../zed_rflink.c" -std=gnu11 -g3 -c -Ipthread -Ilibgpiod -Im -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"zed_rflink.d" -MT"zed_rflink.o" -o "zed_rflink.o"
+../zed_rflink.c: In function ‘rflinkLoop’:
+../zed_rflink.c:69:69: error: invalid use of void expression
+   69 |                 printf("RF Link Thread %5.2f %x\r\n",get_used_cpu(),read_stpmicVersion(STPMIC_VERSION_REGISTER));
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../zed_rflink.c:57:32: warning: unused variable ‘data’ [-Wunused-variable]
+   57 |         struct gpiohandle_data data;
+      |                                ^~~~
+../zed_rflink.c:56:35: warning: unused variable ‘req’ [-Wunused-variable]
+   56 |         struct gpiohandle_request req;
+      |                                   ^~~
+make: *** [subdir.mk:50: zed_rflink.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+23:40:41 **** Incremental Build of configuration Debug for project 801.01_CM4 ****
+make -j32 all 
+arm-none-eabi-size  801.01_CM4.elf 
+   text	   data	    bss	    dec	    hex	filename
+  33416	    288	   2172	  35876	   8c24	801.01_CM4.elf
+Finished building: default.size.stdout
+ 
+23:40:42 **** Incremental Build of configuration Default for project fw ****
+make all 
+Wrapper for /home/faruk/st/stm32cubeide_1.16.0/plugins/com.st.stm32cube.ide.mpu.linux.toolchain_2.1.0.202305092038/tools/bin/make
+FIP_DEPLOYDIR_ROOT: /home/faruk/Desktop/projects/801.01/SOFTWARE/801.01_fw/801.01/CA7/fw/Default/../../FIP_artifacts
++ case "$command" in
++ exec make all
+Building file: ../zed_rflink.c
+Invoking: MPU GCC Compiler
+arm-ostl-linux-gnueabi-gcc  -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 --sysroot=/opt/st/stm32mp1/4.2.4-openstlinux-6.1-yocto-mickledore-mpu-v24.06.26/sysroots/cortexa7t2hf-neon-vfpv4-ostl-linux-gnueabi "../zed_rflink.c" -std=gnu11 -g3 -c -Ipthread -Ilibgpiod -Im -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"zed_rflink.d" -MT"zed_rflink.o" -o "zed_rflink.o"
+../zed_rflink.c: In function ‘rflinkLoop’:
+../zed_rflink.c:69:69: error: invalid use of void expression
+   69 |                 printf("RF Link Thread %5.2f %x\r\n",get_used_cpu(),read_stpmicVersion(STPMIC_VERSION_REGISTER));
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../zed_rflink.c:57:32: warning: unused variable ‘data’ [-Wunused-variable]
+   57 |         struct gpiohandle_data data;
+      |                                ^~~~
+../zed_rflink.c:56:35: warning: unused variable ‘req’ [-Wunused-variable]
+   56 |         struct gpiohandle_request req;
+      |                                   ^~~
+make: *** [subdir.mk:50: zed_rflink.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+16:50:43 **** Incremental Build of configuration Debug for project 801.01_CM4 ****
+make -j32 all 
+arm-none-eabi-size  801.01_CM4.elf 
+   text	   data	    bss	    dec	    hex	filename
+  33416	    288	   2172	  35876	   8c24	801.01_CM4.elf
+Finished building: default.size.stdout
+ 
+16:50:43 **** Incremental Build of configuration Default for project fw ****
+make all 
+Wrapper for /home/faruk/st/stm32cubeide_1.16.0/plugins/com.st.stm32cube.ide.mpu.linux.toolchain_2.1.0.202305092038/tools/bin/make
+FIP_DEPLOYDIR_ROOT: /home/faruk/Desktop/projects/801.01/SOFTWARE/801.01_fw/801.01/CA7/fw/Default/../../FIP_artifacts
++ case "$command" in
++ exec make all
+Building file: ../fzd_stpmic1.c
+Invoking: MPU GCC Compiler
+arm-ostl-linux-gnueabi-gcc  -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 --sysroot=/opt/st/stm32mp1/4.2.4-openstlinux-6.1-yocto-mickledore-mpu-v24.06.26/sysroots/cortexa7t2hf-neon-vfpv4-ostl-linux-gnueabi "../fzd_stpmic1.c" -std=gnu11 -g3 -c -Ipthread -Ilibgpiod -Im -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"fzd_stpmic1.d" -MT"fzd_stpmic1.o" -o "fzd_stpmic1.o"
+../fzd_stpmic1.c: In function ‘initialize_stpmic’:
+../fzd_stpmic1.c:31:34: warning: implicit declaration of function ‘dup’ [-Wimplicit-function-declaration]
+   31 |                 stpmic_i2c_dev = dup(file);
+      |                                  ^~~
+../fzd_stpmic1.c:32:17: warning: implicit declaration of function ‘close’; did you mean ‘pclose’? [-Wimplicit-function-declaration]
+   32 |                 close(file);
+      |                 ^~~~~
+      |                 pclose
+../fzd_stpmic1.c: In function ‘read_stpmicVersion’:
+../fzd_stpmic1.c:41:12: warning: implicit declaration of function ‘write’; did you mean ‘fwrite’? [-Wimplicit-function-declaration]
+   41 |         if(write(stpmic_i2c_dev, &reg_add, 1) < 1)
+      |            ^~~~~
+      |            fwrite
+../fzd_stpmic1.c:46:12: warning: implicit declaration of function ‘read’; did you mean ‘fread’? [-Wimplicit-function-declaration]
+   46 |         if(read(stpmic_i2c_dev, buf, 1) < 0)
+      |            ^~~~
+      |            fread
+Finished building: ../fzd_stpmic1.c
+ 
+Building file: ../main.c
+Invoking: MPU GCC Compiler
+arm-ostl-linux-gnueabi-gcc  -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 --sysroot=/opt/st/stm32mp1/4.2.4-openstlinux-6.1-yocto-mickledore-mpu-v24.06.26/sysroots/cortexa7t2hf-neon-vfpv4-ostl-linux-gnueabi "../main.c" -std=gnu11 -g3 -c -Ipthread -Ilibgpiod -Im -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"main.d" -MT"main.o" -o "main.o"
+../main.c: In function ‘set_schedular_info’:
+../main.c:58:29: warning: implicit declaration of function ‘pthread_setaffinity_np’ [-Wimplicit-function-declaration]
+   58 |                 if ((nRet = pthread_setaffinity_np(pthread_self(), sizeof(cpu_set_t), &cpuset)) != 0)
+      |                             ^~~~~~~~~~~~~~~~~~~~~~
+Finished building: ../main.c
+ 
+Building file: ../zed_rflink.c
+Invoking: MPU GCC Compiler
+arm-ostl-linux-gnueabi-gcc  -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 --sysroot=/opt/st/stm32mp1/4.2.4-openstlinux-6.1-yocto-mickledore-mpu-v24.06.26/sysroots/cortexa7t2hf-neon-vfpv4-ostl-linux-gnueabi "../zed_rflink.c" -std=gnu11 -g3 -c -Ipthread -Ilibgpiod -Im -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"zed_rflink.d" -MT"zed_rflink.o" -o "zed_rflink.o"
+../zed_rflink.c: In function ‘rflinkLoop’:
+../zed_rflink.c:57:32: warning: unused variable ‘data’ [-Wunused-variable]
+   57 |         struct gpiohandle_data data;
+      |                                ^~~~
+../zed_rflink.c:56:35: warning: unused variable ‘req’ [-Wunused-variable]
+   56 |         struct gpiohandle_request req;
+      |                                   ^~~
+Finished building: ../zed_rflink.c
+ 
+Building target: fw
+Invoking: MPU GCC Linker
+arm-ostl-linux-gnueabi-gcc  -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 --sysroot=/opt/st/stm32mp1/4.2.4-openstlinux-6.1-yocto-mickledore-mpu-v24.06.26/sysroots/cortexa7t2hf-neon-vfpv4-ostl-linux-gnueabi -o "fw" ./cJSON.o ./fzd_stpmic1.o ./main.o ./zed_cpu_info.o ./zed_gpio.o ./zed_rflink.o ./zed_serial_com.o ./zed_spi.o ./zed_timing.o ./zed_uart.o ./zed_uio.o    -Wl,-Map="fw.map" -Wl,--gc-sections
+Finished building target: fw
+ 
+16:50:46 **** Incremental Build of configuration Default for project fw ****
+make all 
+Wrapper for /home/faruk/st/stm32cubeide_1.16.0/plugins/com.st.stm32cube.ide.mpu.linux.toolchain_2.1.0.202305092038/tools/bin/make
+FIP_DEPLOYDIR_ROOT: /home/faruk/Desktop/projects/801.01/SOFTWARE/801.01_fw/801.01/CA7/fw/Default/../../FIP_artifacts
++ case "$command" in
++ exec make all
+make: Nothing to be done for 'all'.
+16:51:08 **** Incremental Build of configuration Debug for project 801.01_CM4 ****
+make -j32 all 
+arm-none-eabi-size  801.01_CM4.elf 
+   text	   data	    bss	    dec	    hex	filename
+  33416	    288	   2172	  35876	   8c24	801.01_CM4.elf
+Finished building: default.size.stdout
+ 
+16:51:08 **** Incremental Build of configuration Default for project fw ****
+make all 
+Wrapper for /home/faruk/st/stm32cubeide_1.16.0/plugins/com.st.stm32cube.ide.mpu.linux.toolchain_2.1.0.202305092038/tools/bin/make
+FIP_DEPLOYDIR_ROOT: /home/faruk/Desktop/projects/801.01/SOFTWARE/801.01_fw/801.01/CA7/fw/Default/../../FIP_artifacts
++ case "$command" in
++ exec make all
+Building file: ../zed_rflink.c
+Invoking: MPU GCC Compiler
+arm-ostl-linux-gnueabi-gcc  -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 --sysroot=/opt/st/stm32mp1/4.2.4-openstlinux-6.1-yocto-mickledore-mpu-v24.06.26/sysroots/cortexa7t2hf-neon-vfpv4-ostl-linux-gnueabi "../zed_rflink.c" -std=gnu11 -g3 -c -Ipthread -Ilibgpiod -Im -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"zed_rflink.d" -MT"zed_rflink.o" -o "zed_rflink.o"
+../zed_rflink.c: In function ‘rflinkLoop’:
+../zed_rflink.c:57:32: warning: unused variable ‘data’ [-Wunused-variable]
+   57 |         struct gpiohandle_data data;
+      |                                ^~~~
+../zed_rflink.c:56:35: warning: unused variable ‘req’ [-Wunused-variable]
+   56 |         struct gpiohandle_request req;
+      |                                   ^~~
+Finished building: ../zed_rflink.c
+ 
+Building target: fw
+Invoking: MPU GCC Linker
+arm-ostl-linux-gnueabi-gcc  -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 --sysroot=/opt/st/stm32mp1/4.2.4-openstlinux-6.1-yocto-mickledore-mpu-v24.06.26/sysroots/cortexa7t2hf-neon-vfpv4-ostl-linux-gnueabi -o "fw" ./cJSON.o ./fzd_stpmic1.o ./main.o ./zed_cpu_info.o ./zed_gpio.o ./zed_rflink.o ./zed_serial_com.o ./zed_spi.o ./zed_timing.o ./zed_uart.o ./zed_uio.o    -Wl,-Map="fw.map" -Wl,--gc-sections
+Finished building target: fw
+ 
+16:52:15 **** Incremental Build of configuration Debug for project 801.01_CM4 ****
+make -j32 all 
+arm-none-eabi-size  801.01_CM4.elf 
+   text	   data	    bss	    dec	    hex	filename
+  33416	    288	   2172	  35876	   8c24	801.01_CM4.elf
+Finished building: default.size.stdout
+ 
+16:52:16 **** Incremental Build of configuration Default for project fw ****
+make all 
+Wrapper for /home/faruk/st/stm32cubeide_1.16.0/plugins/com.st.stm32cube.ide.mpu.linux.toolchain_2.1.0.202305092038/tools/bin/make
+FIP_DEPLOYDIR_ROOT: /home/faruk/Desktop/projects/801.01/SOFTWARE/801.01_fw/801.01/CA7/fw/Default/../../FIP_artifacts
++ case "$command" in
++ exec make all
+Building file: ../zed_rflink.c
+Invoking: MPU GCC Compiler
+arm-ostl-linux-gnueabi-gcc  -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 --sysroot=/opt/st/stm32mp1/4.2.4-openstlinux-6.1-yocto-mickledore-mpu-v24.06.26/sysroots/cortexa7t2hf-neon-vfpv4-ostl-linux-gnueabi "../zed_rflink.c" -std=gnu11 -g3 -c -Ipthread -Ilibgpiod -Im -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"zed_rflink.d" -MT"zed_rflink.o" -o "zed_rflink.o"
+Finished building: ../zed_rflink.c
+ 
+Building target: fw
+Invoking: MPU GCC Linker
+arm-ostl-linux-gnueabi-gcc  -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 --sysroot=/opt/st/stm32mp1/4.2.4-openstlinux-6.1-yocto-mickledore-mpu-v24.06.26/sysroots/cortexa7t2hf-neon-vfpv4-ostl-linux-gnueabi -o "fw" ./cJSON.o ./fzd_stpmic1.o ./main.o ./zed_cpu_info.o ./zed_gpio.o ./zed_rflink.o ./zed_serial_com.o ./zed_spi.o ./zed_timing.o ./zed_uart.o ./zed_uio.o    -Wl,-Map="fw.map" -Wl,--gc-sections
+Finished building target: fw
+ 
+16:52:20 **** Incremental Build of configuration Debug for project 801.01_CM4 ****
+make -j32 all 
+arm-none-eabi-size  801.01_CM4.elf 
+   text	   data	    bss	    dec	    hex	filename
+  33416	    288	   2172	  35876	   8c24	801.01_CM4.elf
+Finished building: default.size.stdout
+ 
+16:52:20 **** Incremental Build of configuration Default for project fw ****
+make all 
+Wrapper for /home/faruk/st/stm32cubeide_1.16.0/plugins/com.st.stm32cube.ide.mpu.linux.toolchain_2.1.0.202305092038/tools/bin/make
+FIP_DEPLOYDIR_ROOT: /home/faruk/Desktop/projects/801.01/SOFTWARE/801.01_fw/801.01/CA7/fw/Default/../../FIP_artifacts
++ case "$command" in
++ exec make all
+Building file: ../zed_rflink.c
+Invoking: MPU GCC Compiler
+arm-ostl-linux-gnueabi-gcc  -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 --sysroot=/opt/st/stm32mp1/4.2.4-openstlinux-6.1-yocto-mickledore-mpu-v24.06.26/sysroots/cortexa7t2hf-neon-vfpv4-ostl-linux-gnueabi "../zed_rflink.c" -std=gnu11 -g3 -c -Ipthread -Ilibgpiod -Im -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"zed_rflink.d" -MT"zed_rflink.o" -o "zed_rflink.o"
+Finished building: ../zed_rflink.c
+ 
+Building target: fw
+Invoking: MPU GCC Linker
+arm-ostl-linux-gnueabi-gcc  -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 --sysroot=/opt/st/stm32mp1/4.2.4-openstlinux-6.1-yocto-mickledore-mpu-v24.06.26/sysroots/cortexa7t2hf-neon-vfpv4-ostl-linux-gnueabi -o "fw" ./cJSON.o ./fzd_stpmic1.o ./main.o ./zed_cpu_info.o ./zed_gpio.o ./zed_rflink.o ./zed_serial_com.o ./zed_spi.o ./zed_timing.o ./zed_uart.o ./zed_uio.o    -Wl,-Map="fw.map" -Wl,--gc-sections
+Finished building target: fw
+ 
+16:52:22 **** Incremental Build of configuration Default for project fw ****
+make all 
+Wrapper for /home/faruk/st/stm32cubeide_1.16.0/plugins/com.st.stm32cube.ide.mpu.linux.toolchain_2.1.0.202305092038/tools/bin/make
+FIP_DEPLOYDIR_ROOT: /home/faruk/Desktop/projects/801.01/SOFTWARE/801.01_fw/801.01/CA7/fw/Default/../../FIP_artifacts
++ case "$command" in
++ exec make all
+make: Nothing to be done for 'all'.
+16:53:54 **** Incremental Build of configuration Debug for project 801.01_CM4 ****
+make -j32 all 
+arm-none-eabi-size  801.01_CM4.elf 
+   text	   data	    bss	    dec	    hex	filename
+  33416	    288	   2172	  35876	   8c24	801.01_CM4.elf
+Finished building: default.size.stdout
+ 
+16:53:54 **** Incremental Build of configuration Default for project fw ****
+make all 
+Wrapper for /home/faruk/st/stm32cubeide_1.16.0/plugins/com.st.stm32cube.ide.mpu.linux.toolchain_2.1.0.202305092038/tools/bin/make
+FIP_DEPLOYDIR_ROOT: /home/faruk/Desktop/projects/801.01/SOFTWARE/801.01_fw/801.01/CA7/fw/Default/../../FIP_artifacts
++ case "$command" in
++ exec make all
+Building file: ../fzd_stpmic1.c
+Invoking: MPU GCC Compiler
+arm-ostl-linux-gnueabi-gcc  -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 --sysroot=/opt/st/stm32mp1/4.2.4-openstlinux-6.1-yocto-mickledore-mpu-v24.06.26/sysroots/cortexa7t2hf-neon-vfpv4-ostl-linux-gnueabi "../fzd_stpmic1.c" -std=gnu11 -g3 -c -Ipthread -Ilibgpiod -Im -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"fzd_stpmic1.d" -MT"fzd_stpmic1.o" -o "fzd_stpmic1.o"
+../fzd_stpmic1.c: In function ‘initialize_stpmic’:
+../fzd_stpmic1.c:31:34: warning: implicit declaration of function ‘dup’ [-Wimplicit-function-declaration]
+   31 |                 stpmic_i2c_dev = dup(file);
+      |                                  ^~~
+../fzd_stpmic1.c:32:17: warning: implicit declaration of function ‘close’; did you mean ‘pclose’? [-Wimplicit-function-declaration]
+   32 |                 close(file);
+      |                 ^~~~~
+      |                 pclose
+../fzd_stpmic1.c: In function ‘read_stpmicVersion’:
+../fzd_stpmic1.c:47:12: warning: implicit declaration of function ‘write’; did you mean ‘fwrite’? [-Wimplicit-function-declaration]
+   47 |         if(write(stpmic_i2c_dev, &reg_add, 1) < 1)
+      |            ^~~~~
+      |            fwrite
+../fzd_stpmic1.c:52:12: warning: implicit declaration of function ‘read’; did you mean ‘fread’? [-Wimplicit-function-declaration]
+   52 |         if(read(stpmic_i2c_dev, buf, 1) < 0)
+      |            ^~~~
+      |            fread
+Finished building: ../fzd_stpmic1.c
+ 
+Building target: fw
+Invoking: MPU GCC Linker
+arm-ostl-linux-gnueabi-gcc  -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 --sysroot=/opt/st/stm32mp1/4.2.4-openstlinux-6.1-yocto-mickledore-mpu-v24.06.26/sysroots/cortexa7t2hf-neon-vfpv4-ostl-linux-gnueabi -o "fw" ./cJSON.o ./fzd_stpmic1.o ./main.o ./zed_cpu_info.o ./zed_gpio.o ./zed_rflink.o ./zed_serial_com.o ./zed_spi.o ./zed_timing.o ./zed_uart.o ./zed_uio.o    -Wl,-Map="fw.map" -Wl,--gc-sections
+Finished building target: fw
+ 
+16:59:50 **** Incremental Build of configuration Debug for project 801.01_CM4 ****
+make -j32 all 
+arm-none-eabi-size  801.01_CM4.elf 
+   text	   data	    bss	    dec	    hex	filename
+  33416	    288	   2172	  35876	   8c24	801.01_CM4.elf
+Finished building: default.size.stdout
+ 
+16:59:50 **** Incremental Build of configuration Default for project fw ****
+make all 
+Wrapper for /home/faruk/st/stm32cubeide_1.16.0/plugins/com.st.stm32cube.ide.mpu.linux.toolchain_2.1.0.202305092038/tools/bin/make
+FIP_DEPLOYDIR_ROOT: /home/faruk/Desktop/projects/801.01/SOFTWARE/801.01_fw/801.01/CA7/fw/Default/../../FIP_artifacts
++ case "$command" in
++ exec make all
+make: Nothing to be done for 'all'.
+17:02:14 **** Incremental Build of configuration Debug for project 801.01_CM4 ****
+make -j32 all 
+arm-none-eabi-size  801.01_CM4.elf 
+   text	   data	    bss	    dec	    hex	filename
+  33416	    288	   2172	  35876	   8c24	801.01_CM4.elf
+Finished building: default.size.stdout
+ 
+17:02:14 **** Incremental Build of configuration Default for project fw ****
+make all 
+Wrapper for /home/faruk/st/stm32cubeide_1.16.0/plugins/com.st.stm32cube.ide.mpu.linux.toolchain_2.1.0.202305092038/tools/bin/make
+FIP_DEPLOYDIR_ROOT: /home/faruk/Desktop/projects/801.01/SOFTWARE/801.01_fw/801.01/CA7/fw/Default/../../FIP_artifacts
++ case "$command" in
++ exec make all
+Building file: ../fzd_stpmic1.c
+Invoking: MPU GCC Compiler
+arm-ostl-linux-gnueabi-gcc  -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 --sysroot=/opt/st/stm32mp1/4.2.4-openstlinux-6.1-yocto-mickledore-mpu-v24.06.26/sysroots/cortexa7t2hf-neon-vfpv4-ostl-linux-gnueabi "../fzd_stpmic1.c" -std=gnu11 -g3 -c -Ipthread -Ilibgpiod -Im -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"fzd_stpmic1.d" -MT"fzd_stpmic1.o" -o "fzd_stpmic1.o"
+../fzd_stpmic1.c: In function ‘initialize_stpmic’:
+../fzd_stpmic1.c:30:34: warning: implicit declaration of function ‘dup’ [-Wimplicit-function-declaration]
+   30 |                 stpmic_i2c_dev = dup(file);
+      |                                  ^~~
+../fzd_stpmic1.c:31:17: warning: implicit declaration of function ‘close’; did you mean ‘pclose’? [-Wimplicit-function-declaration]
+   31 |                 close(file);
+      |                 ^~~~~
+      |                 pclose
+../fzd_stpmic1.c: In function ‘stpmic_read’:
+../fzd_stpmic1.c:39:12: warning: implicit declaration of function ‘write’; did you mean ‘fwrite’? [-Wimplicit-function-declaration]
+   39 |         if(write(stpmic_i2c_dev, &reg_addr, 1) < 1)
+      |            ^~~~~
+      |            fwrite
+../fzd_stpmic1.c:44:12: warning: implicit declaration of function ‘read’; did you mean ‘fread’? [-Wimplicit-function-declaration]
+   44 |         if(read(stpmic_i2c_dev, value, size) < 0)
+      |            ^~~~
+      |            fread
+../fzd_stpmic1.c:49:16: error: ‘val’ undeclared (first use in this function); did you mean ‘value’?
+   49 |         return val;
+      |                ^~~
+      |                value
+../fzd_stpmic1.c:49:16: note: each undeclared identifier is reported only once for each function it appears in
+../fzd_stpmic1.c:50:1: warning: control reaches end of non-void function [-Wreturn-type]
+   50 | }
+      | ^
+make: *** [subdir.mk:50: fzd_stpmic1.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+17:02:19 **** Incremental Build of configuration Debug for project 801.01_CM4 ****
+make -j32 all 
+arm-none-eabi-size  801.01_CM4.elf 
+   text	   data	    bss	    dec	    hex	filename
+  33416	    288	   2172	  35876	   8c24	801.01_CM4.elf
+Finished building: default.size.stdout
+ 
+17:02:19 **** Incremental Build of configuration Default for project fw ****
+make all 
+Wrapper for /home/faruk/st/stm32cubeide_1.16.0/plugins/com.st.stm32cube.ide.mpu.linux.toolchain_2.1.0.202305092038/tools/bin/make
+FIP_DEPLOYDIR_ROOT: /home/faruk/Desktop/projects/801.01/SOFTWARE/801.01_fw/801.01/CA7/fw/Default/../../FIP_artifacts
++ case "$command" in
++ exec make all
+Building file: ../fzd_stpmic1.c
+Invoking: MPU GCC Compiler
+arm-ostl-linux-gnueabi-gcc  -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 --sysroot=/opt/st/stm32mp1/4.2.4-openstlinux-6.1-yocto-mickledore-mpu-v24.06.26/sysroots/cortexa7t2hf-neon-vfpv4-ostl-linux-gnueabi "../fzd_stpmic1.c" -std=gnu11 -g3 -c -Ipthread -Ilibgpiod -Im -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"fzd_stpmic1.d" -MT"fzd_stpmic1.o" -o "fzd_stpmic1.o"
+../fzd_stpmic1.c: In function ‘initialize_stpmic’:
+../fzd_stpmic1.c:30:34: warning: implicit declaration of function ‘dup’ [-Wimplicit-function-declaration]
+   30 |                 stpmic_i2c_dev = dup(file);
+      |                                  ^~~
+../fzd_stpmic1.c:31:17: warning: implicit declaration of function ‘close’; did you mean ‘pclose’? [-Wimplicit-function-declaration]
+   31 |                 close(file);
+      |                 ^~~~~
+      |                 pclose
+../fzd_stpmic1.c: In function ‘stpmic_read’:
+../fzd_stpmic1.c:39:12: warning: implicit declaration of function ‘write’; did you mean ‘fwrite’? [-Wimplicit-function-declaration]
+   39 |         if(write(stpmic_i2c_dev, &reg_addr, 1) < 1)
+      |            ^~~~~
+      |            fwrite
+../fzd_stpmic1.c:44:12: warning: implicit declaration of function ‘read’; did you mean ‘fread’? [-Wimplicit-function-declaration]
+   44 |         if(read(stpmic_i2c_dev, value, size) < 0)
+      |            ^~~~
+      |            fread
+../fzd_stpmic1.c:49:16: warning: returning ‘uint16_t *’ {aka ‘short unsigned int *’} from a function with return type ‘uint16_t’ {aka ‘short unsigned int’} makes integer from pointer without a cast [-Wint-conversion]
+   49 |         return value;
+      |                ^~~~~
+Finished building: ../fzd_stpmic1.c
+ 
+Building target: fw
+Invoking: MPU GCC Linker
+arm-ostl-linux-gnueabi-gcc  -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 --sysroot=/opt/st/stm32mp1/4.2.4-openstlinux-6.1-yocto-mickledore-mpu-v24.06.26/sysroots/cortexa7t2hf-neon-vfpv4-ostl-linux-gnueabi -o "fw" ./cJSON.o ./fzd_stpmic1.o ./main.o ./zed_cpu_info.o ./zed_gpio.o ./zed_rflink.o ./zed_serial_com.o ./zed_spi.o ./zed_timing.o ./zed_uart.o ./zed_uio.o    -Wl,-Map="fw.map" -Wl,--gc-sections
+Finished building target: fw
+ 
+17:02:29 **** Incremental Build of configuration Debug for project 801.01_CM4 ****
+make -j32 all 
+arm-none-eabi-size  801.01_CM4.elf 
+   text	   data	    bss	    dec	    hex	filename
+  33416	    288	   2172	  35876	   8c24	801.01_CM4.elf
+Finished building: default.size.stdout
+ 
+17:02:29 **** Incremental Build of configuration Default for project fw ****
+make all 
+Wrapper for /home/faruk/st/stm32cubeide_1.16.0/plugins/com.st.stm32cube.ide.mpu.linux.toolchain_2.1.0.202305092038/tools/bin/make
+FIP_DEPLOYDIR_ROOT: /home/faruk/Desktop/projects/801.01/SOFTWARE/801.01_fw/801.01/CA7/fw/Default/../../FIP_artifacts
++ case "$command" in
++ exec make all
+Building file: ../fzd_stpmic1.c
+Invoking: MPU GCC Compiler
+arm-ostl-linux-gnueabi-gcc  -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 --sysroot=/opt/st/stm32mp1/4.2.4-openstlinux-6.1-yocto-mickledore-mpu-v24.06.26/sysroots/cortexa7t2hf-neon-vfpv4-ostl-linux-gnueabi "../fzd_stpmic1.c" -std=gnu11 -g3 -c -Ipthread -Ilibgpiod -Im -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"fzd_stpmic1.d" -MT"fzd_stpmic1.o" -o "fzd_stpmic1.o"
+../fzd_stpmic1.c: In function ‘initialize_stpmic’:
+../fzd_stpmic1.c:30:34: warning: implicit declaration of function ‘dup’ [-Wimplicit-function-declaration]
+   30 |                 stpmic_i2c_dev = dup(file);
+      |                                  ^~~
+../fzd_stpmic1.c:31:17: warning: implicit declaration of function ‘close’; did you mean ‘pclose’? [-Wimplicit-function-declaration]
+   31 |                 close(file);
+      |                 ^~~~~
+      |                 pclose
+../fzd_stpmic1.c: In function ‘stpmic_read’:
+../fzd_stpmic1.c:39:12: warning: implicit declaration of function ‘write’; did you mean ‘fwrite’? [-Wimplicit-function-declaration]
+   39 |         if(write(stpmic_i2c_dev, &reg_addr, 1) < 1)
+      |            ^~~~~
+      |            fwrite
+../fzd_stpmic1.c:44:12: warning: implicit declaration of function ‘read’; did you mean ‘fread’? [-Wimplicit-function-declaration]
+   44 |         if(read(stpmic_i2c_dev, value, size) < 0)
+      |            ^~~~
+      |            fread
+../fzd_stpmic1.c:49:16: warning: returning ‘uint16_t *’ {aka ‘short unsigned int *’} from a function with return type ‘uint16_t’ {aka ‘short unsigned int’} makes integer from pointer without a cast [-Wint-conversion]
+   49 |         return value;
+      |                ^~~~~
+Finished building: ../fzd_stpmic1.c
+ 
+Building file: ../main.c
+Invoking: MPU GCC Compiler
+arm-ostl-linux-gnueabi-gcc  -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 --sysroot=/opt/st/stm32mp1/4.2.4-openstlinux-6.1-yocto-mickledore-mpu-v24.06.26/sysroots/cortexa7t2hf-neon-vfpv4-ostl-linux-gnueabi "../main.c" -std=gnu11 -g3 -c -Ipthread -Ilibgpiod -Im -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"main.d" -MT"main.o" -o "main.o"
+../main.c: In function ‘set_schedular_info’:
+../main.c:58:29: warning: implicit declaration of function ‘pthread_setaffinity_np’ [-Wimplicit-function-declaration]
+   58 |                 if ((nRet = pthread_setaffinity_np(pthread_self(), sizeof(cpu_set_t), &cpuset)) != 0)
+      |                             ^~~~~~~~~~~~~~~~~~~~~~
+Finished building: ../main.c
+ 
+Building file: ../zed_rflink.c
+Invoking: MPU GCC Compiler
+arm-ostl-linux-gnueabi-gcc  -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 --sysroot=/opt/st/stm32mp1/4.2.4-openstlinux-6.1-yocto-mickledore-mpu-v24.06.26/sysroots/cortexa7t2hf-neon-vfpv4-ostl-linux-gnueabi "../zed_rflink.c" -std=gnu11 -g3 -c -Ipthread -Ilibgpiod -Im -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"zed_rflink.d" -MT"zed_rflink.o" -o "zed_rflink.o"
+Finished building: ../zed_rflink.c
+ 
+Building target: fw
+Invoking: MPU GCC Linker
+arm-ostl-linux-gnueabi-gcc  -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 --sysroot=/opt/st/stm32mp1/4.2.4-openstlinux-6.1-yocto-mickledore-mpu-v24.06.26/sysroots/cortexa7t2hf-neon-vfpv4-ostl-linux-gnueabi -o "fw" ./cJSON.o ./fzd_stpmic1.o ./main.o ./zed_cpu_info.o ./zed_gpio.o ./zed_rflink.o ./zed_serial_com.o ./zed_spi.o ./zed_timing.o ./zed_uart.o ./zed_uio.o    -Wl,-Map="fw.map" -Wl,--gc-sections
+Finished building target: fw
+ 
+17:03:09 **** Incremental Build of configuration Debug for project 801.01_CM4 ****
+make -j32 all 
+arm-none-eabi-size  801.01_CM4.elf 
+   text	   data	    bss	    dec	    hex	filename
+  33416	    288	   2172	  35876	   8c24	801.01_CM4.elf
+Finished building: default.size.stdout
+ 
+17:03:09 **** Incremental Build of configuration Default for project fw ****
+make all 
+Wrapper for /home/faruk/st/stm32cubeide_1.16.0/plugins/com.st.stm32cube.ide.mpu.linux.toolchain_2.1.0.202305092038/tools/bin/make
+FIP_DEPLOYDIR_ROOT: /home/faruk/Desktop/projects/801.01/SOFTWARE/801.01_fw/801.01/CA7/fw/Default/../../FIP_artifacts
++ case "$command" in
++ exec make all
+Building file: ../fzd_stpmic1.c
+Invoking: MPU GCC Compiler
+arm-ostl-linux-gnueabi-gcc  -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 --sysroot=/opt/st/stm32mp1/4.2.4-openstlinux-6.1-yocto-mickledore-mpu-v24.06.26/sysroots/cortexa7t2hf-neon-vfpv4-ostl-linux-gnueabi "../fzd_stpmic1.c" -std=gnu11 -g3 -c -Ipthread -Ilibgpiod -Im -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"fzd_stpmic1.d" -MT"fzd_stpmic1.o" -o "fzd_stpmic1.o"
+../fzd_stpmic1.c: In function ‘initialize_stpmic’:
+../fzd_stpmic1.c:30:34: warning: implicit declaration of function ‘dup’ [-Wimplicit-function-declaration]
+   30 |                 stpmic_i2c_dev = dup(file);
+      |                                  ^~~
+../fzd_stpmic1.c:31:17: warning: implicit declaration of function ‘close’; did you mean ‘pclose’? [-Wimplicit-function-declaration]
+   31 |                 close(file);
+      |                 ^~~~~
+      |                 pclose
+../fzd_stpmic1.c: In function ‘stpmic_read’:
+../fzd_stpmic1.c:39:12: warning: implicit declaration of function ‘write’; did you mean ‘fwrite’? [-Wimplicit-function-declaration]
+   39 |         if(write(stpmic_i2c_dev, &reg_addr, 1) < 1)
+      |            ^~~~~
+      |            fwrite
+../fzd_stpmic1.c:44:12: warning: implicit declaration of function ‘read’; did you mean ‘fread’? [-Wimplicit-function-declaration]
+   44 |         if(read(stpmic_i2c_dev, value, size) < 0)
+      |            ^~~~
+      |            fread
+../fzd_stpmic1.c:49:16: warning: returning ‘uint16_t *’ {aka ‘short unsigned int *’} from a function with return type ‘uint16_t’ {aka ‘short unsigned int’} makes integer from pointer without a cast [-Wint-conversion]
+   49 |         return value;
+      |                ^~~~~
+../fzd_stpmic1.c: At top level:
+../fzd_stpmic1.c:60:9: error: conflicting types for ‘read_stpmicVersion’; have ‘uint8_t(void)’ {aka ‘unsigned char(void)’}
+   60 | uint8_t read_stpmicVersion(void)
+      |         ^~~~~~~~~~~~~~~~~~
+In file included from ../fzd_stpmic1.c:9:
+../fzd_stpmic1.h:24:9: note: previous declaration of ‘read_stpmicVersion’ with type ‘uint8_t(uint8_t)’ {aka ‘unsigned char(unsigned char)’}
+   24 | uint8_t read_stpmicVersion(uint8_t reg_add);
+      |         ^~~~~~~~~~~~~~~~~~
+../fzd_stpmic1.c: In function ‘read_stpmicVersion’:
+../fzd_stpmic1.c:64:46: warning: passing argument 2 of ‘stpmic_read’ makes pointer from integer without a cast [-Wint-conversion]
+   64 |         stpmic_read(STPMIC_VERSION_REGISTER, buf, 1);
+      |                                              ^~~
+      |                                              |
+      |                                              uint16_t {aka short unsigned int}
+../fzd_stpmic1.c:37:49: note: expected ‘uint16_t *’ {aka ‘short unsigned int *’} but argument is of type ‘uint16_t’ {aka ‘short unsigned int’}
+   37 | uint16_t stpmic_read(uint8_t reg_addr,uint16_t *value,uint8_t size)
+      |                                       ~~~~~~~~~~^~~~~
+../fzd_stpmic1.c:65:1: warning: control reaches end of non-void function [-Wreturn-type]
+   65 | }
+      | ^
+make: *** [subdir.mk:50: fzd_stpmic1.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+17:03:16 **** Incremental Build of configuration Debug for project 801.01_CM4 ****
+make -j32 all 
+arm-none-eabi-size  801.01_CM4.elf 
+   text	   data	    bss	    dec	    hex	filename
+  33416	    288	   2172	  35876	   8c24	801.01_CM4.elf
+Finished building: default.size.stdout
+ 
+17:03:16 **** Incremental Build of configuration Default for project fw ****
+make all 
+Wrapper for /home/faruk/st/stm32cubeide_1.16.0/plugins/com.st.stm32cube.ide.mpu.linux.toolchain_2.1.0.202305092038/tools/bin/make
+FIP_DEPLOYDIR_ROOT: /home/faruk/Desktop/projects/801.01/SOFTWARE/801.01_fw/801.01/CA7/fw/Default/../../FIP_artifacts
++ case "$command" in
++ exec make all
+Building file: ../fzd_stpmic1.c
+Invoking: MPU GCC Compiler
+arm-ostl-linux-gnueabi-gcc  -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 --sysroot=/opt/st/stm32mp1/4.2.4-openstlinux-6.1-yocto-mickledore-mpu-v24.06.26/sysroots/cortexa7t2hf-neon-vfpv4-ostl-linux-gnueabi "../fzd_stpmic1.c" -std=gnu11 -g3 -c -Ipthread -Ilibgpiod -Im -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"fzd_stpmic1.d" -MT"fzd_stpmic1.o" -o "fzd_stpmic1.o"
+../fzd_stpmic1.c: In function ‘initialize_stpmic’:
+../fzd_stpmic1.c:30:34: warning: implicit declaration of function ‘dup’ [-Wimplicit-function-declaration]
+   30 |                 stpmic_i2c_dev = dup(file);
+      |                                  ^~~
+../fzd_stpmic1.c:31:17: warning: implicit declaration of function ‘close’; did you mean ‘pclose’? [-Wimplicit-function-declaration]
+   31 |                 close(file);
+      |                 ^~~~~
+      |                 pclose
+../fzd_stpmic1.c: In function ‘stpmic_read’:
+../fzd_stpmic1.c:39:12: warning: implicit declaration of function ‘write’; did you mean ‘fwrite’? [-Wimplicit-function-declaration]
+   39 |         if(write(stpmic_i2c_dev, &reg_addr, 1) < 1)
+      |            ^~~~~
+      |            fwrite
+../fzd_stpmic1.c:44:12: warning: implicit declaration of function ‘read’; did you mean ‘fread’? [-Wimplicit-function-declaration]
+   44 |         if(read(stpmic_i2c_dev, value, size) < 0)
+      |            ^~~~
+      |            fread
+../fzd_stpmic1.c:49:16: warning: returning ‘uint16_t *’ {aka ‘short unsigned int *’} from a function with return type ‘uint16_t’ {aka ‘short unsigned int’} makes integer from pointer without a cast [-Wint-conversion]
+   49 |         return value;
+      |                ^~~~~
+../fzd_stpmic1.c: In function ‘read_stpmicVersion’:
+../fzd_stpmic1.c:64:46: warning: passing argument 2 of ‘stpmic_read’ makes pointer from integer without a cast [-Wint-conversion]
+   64 |         stpmic_read(STPMIC_VERSION_REGISTER, buf, 1);
+      |                                              ^~~
+      |                                              |
+      |                                              uint16_t {aka short unsigned int}
+../fzd_stpmic1.c:37:49: note: expected ‘uint16_t *’ {aka ‘short unsigned int *’} but argument is of type ‘uint16_t’ {aka ‘short unsigned int’}
+   37 | uint16_t stpmic_read(uint8_t reg_addr,uint16_t *value,uint8_t size)
+      |                                       ~~~~~~~~~~^~~~~
+../fzd_stpmic1.c:65:1: warning: control reaches end of non-void function [-Wreturn-type]
+   65 | }
+      | ^
+Finished building: ../fzd_stpmic1.c
+ 
+Building file: ../main.c
+Invoking: MPU GCC Compiler
+arm-ostl-linux-gnueabi-gcc  -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 --sysroot=/opt/st/stm32mp1/4.2.4-openstlinux-6.1-yocto-mickledore-mpu-v24.06.26/sysroots/cortexa7t2hf-neon-vfpv4-ostl-linux-gnueabi "../main.c" -std=gnu11 -g3 -c -Ipthread -Ilibgpiod -Im -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"main.d" -MT"main.o" -o "main.o"
+../main.c: In function ‘set_schedular_info’:
+../main.c:58:29: warning: implicit declaration of function ‘pthread_setaffinity_np’ [-Wimplicit-function-declaration]
+   58 |                 if ((nRet = pthread_setaffinity_np(pthread_self(), sizeof(cpu_set_t), &cpuset)) != 0)
+      |                             ^~~~~~~~~~~~~~~~~~~~~~
+Finished building: ../main.c
+ 
+Building file: ../zed_rflink.c
+Invoking: MPU GCC Compiler
+arm-ostl-linux-gnueabi-gcc  -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 --sysroot=/opt/st/stm32mp1/4.2.4-openstlinux-6.1-yocto-mickledore-mpu-v24.06.26/sysroots/cortexa7t2hf-neon-vfpv4-ostl-linux-gnueabi "../zed_rflink.c" -std=gnu11 -g3 -c -Ipthread -Ilibgpiod -Im -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"zed_rflink.d" -MT"zed_rflink.o" -o "zed_rflink.o"
+../zed_rflink.c: In function ‘rflinkLoop’:
+../zed_rflink.c:67:71: error: too many arguments to function ‘read_stpmicVersion’
+   67 |                 printf("RF Link Thread %5.2f 0x%x\r\n",get_used_cpu(),read_stpmicVersion(STPMIC_VERSION_REGISTER));
+      |                                                                       ^~~~~~~~~~~~~~~~~~
+In file included from ../zed_rflink.c:38:
+../fzd_stpmic1.h:24:9: note: declared here
+   24 | uint8_t read_stpmicVersion(void);
+      |         ^~~~~~~~~~~~~~~~~~
+make: *** [subdir.mk:50: zed_rflink.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+17:03:36 **** Incremental Build of configuration Debug for project 801.01_CM4 ****
+make -j32 all 
+arm-none-eabi-size  801.01_CM4.elf 
+   text	   data	    bss	    dec	    hex	filename
+  33416	    288	   2172	  35876	   8c24	801.01_CM4.elf
+Finished building: default.size.stdout
+ 
+17:03:36 **** Incremental Build of configuration Default for project fw ****
+make all 
+Wrapper for /home/faruk/st/stm32cubeide_1.16.0/plugins/com.st.stm32cube.ide.mpu.linux.toolchain_2.1.0.202305092038/tools/bin/make
+FIP_DEPLOYDIR_ROOT: /home/faruk/Desktop/projects/801.01/SOFTWARE/801.01_fw/801.01/CA7/fw/Default/../../FIP_artifacts
++ case "$command" in
++ exec make all
+Building file: ../fzd_stpmic1.c
+Invoking: MPU GCC Compiler
+arm-ostl-linux-gnueabi-gcc  -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 --sysroot=/opt/st/stm32mp1/4.2.4-openstlinux-6.1-yocto-mickledore-mpu-v24.06.26/sysroots/cortexa7t2hf-neon-vfpv4-ostl-linux-gnueabi "../fzd_stpmic1.c" -std=gnu11 -g3 -c -Ipthread -Ilibgpiod -Im -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"fzd_stpmic1.d" -MT"fzd_stpmic1.o" -o "fzd_stpmic1.o"
+../fzd_stpmic1.c: In function ‘initialize_stpmic’:
+../fzd_stpmic1.c:30:34: warning: implicit declaration of function ‘dup’ [-Wimplicit-function-declaration]
+   30 |                 stpmic_i2c_dev = dup(file);
+      |                                  ^~~
+../fzd_stpmic1.c:31:17: warning: implicit declaration of function ‘close’; did you mean ‘pclose’? [-Wimplicit-function-declaration]
+   31 |                 close(file);
+      |                 ^~~~~
+      |                 pclose
+../fzd_stpmic1.c: In function ‘stpmic_read’:
+../fzd_stpmic1.c:39:12: warning: implicit declaration of function ‘write’; did you mean ‘fwrite’? [-Wimplicit-function-declaration]
+   39 |         if(write(stpmic_i2c_dev, &reg_addr, 1) < 1)
+      |            ^~~~~
+      |            fwrite
+../fzd_stpmic1.c:44:12: warning: implicit declaration of function ‘read’; did you mean ‘fread’? [-Wimplicit-function-declaration]
+   44 |         if(read(stpmic_i2c_dev, value, size) < 0)
+      |            ^~~~
+      |            fread
+../fzd_stpmic1.c:49:16: warning: returning ‘uint16_t *’ {aka ‘short unsigned int *’} from a function with return type ‘uint16_t’ {aka ‘short unsigned int’} makes integer from pointer without a cast [-Wint-conversion]
+   49 |         return value;
+      |                ^~~~~
+../fzd_stpmic1.c: At top level:
+../fzd_stpmic1.c:60:10: error: conflicting types for ‘read_stpmicVersion’; have ‘uint16_t(void)’ {aka ‘short unsigned int(void)’}
+   60 | uint16_t read_stpmicVersion(void)
+      |          ^~~~~~~~~~~~~~~~~~
+In file included from ../fzd_stpmic1.c:9:
+../fzd_stpmic1.h:24:9: note: previous declaration of ‘read_stpmicVersion’ with type ‘uint8_t(void)’ {aka ‘unsigned char(void)’}
+   24 | uint8_t read_stpmicVersion(void);
+      |         ^~~~~~~~~~~~~~~~~~
+../fzd_stpmic1.c: In function ‘read_stpmicVersion’:
+../fzd_stpmic1.c:64:46: warning: passing argument 2 of ‘stpmic_read’ makes pointer from integer without a cast [-Wint-conversion]
+   64 |         stpmic_read(STPMIC_VERSION_REGISTER, buf, 1);
+      |                                              ^~~
+      |                                              |
+      |                                              uint16_t {aka short unsigned int}
+../fzd_stpmic1.c:37:49: note: expected ‘uint16_t *’ {aka ‘short unsigned int *’} but argument is of type ‘uint16_t’ {aka ‘short unsigned int’}
+   37 | uint16_t stpmic_read(uint8_t reg_addr,uint16_t *value,uint8_t size)
+      |                                       ~~~~~~~~~~^~~~~
+make: *** [subdir.mk:50: fzd_stpmic1.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+17:03:41 **** Incremental Build of configuration Debug for project 801.01_CM4 ****
+make -j32 all 
+arm-none-eabi-size  801.01_CM4.elf 
+   text	   data	    bss	    dec	    hex	filename
+  33416	    288	   2172	  35876	   8c24	801.01_CM4.elf
+Finished building: default.size.stdout
+ 
+17:03:41 **** Incremental Build of configuration Default for project fw ****
+make all 
+Wrapper for /home/faruk/st/stm32cubeide_1.16.0/plugins/com.st.stm32cube.ide.mpu.linux.toolchain_2.1.0.202305092038/tools/bin/make
+FIP_DEPLOYDIR_ROOT: /home/faruk/Desktop/projects/801.01/SOFTWARE/801.01_fw/801.01/CA7/fw/Default/../../FIP_artifacts
++ case "$command" in
++ exec make all
+Building file: ../fzd_stpmic1.c
+Invoking: MPU GCC Compiler
+arm-ostl-linux-gnueabi-gcc  -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 --sysroot=/opt/st/stm32mp1/4.2.4-openstlinux-6.1-yocto-mickledore-mpu-v24.06.26/sysroots/cortexa7t2hf-neon-vfpv4-ostl-linux-gnueabi "../fzd_stpmic1.c" -std=gnu11 -g3 -c -Ipthread -Ilibgpiod -Im -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"fzd_stpmic1.d" -MT"fzd_stpmic1.o" -o "fzd_stpmic1.o"
+../fzd_stpmic1.c: In function ‘initialize_stpmic’:
+../fzd_stpmic1.c:30:34: warning: implicit declaration of function ‘dup’ [-Wimplicit-function-declaration]
+   30 |                 stpmic_i2c_dev = dup(file);
+      |                                  ^~~
+../fzd_stpmic1.c:31:17: warning: implicit declaration of function ‘close’; did you mean ‘pclose’? [-Wimplicit-function-declaration]
+   31 |                 close(file);
+      |                 ^~~~~
+      |                 pclose
+../fzd_stpmic1.c: In function ‘stpmic_read’:
+../fzd_stpmic1.c:39:12: warning: implicit declaration of function ‘write’; did you mean ‘fwrite’? [-Wimplicit-function-declaration]
+   39 |         if(write(stpmic_i2c_dev, &reg_addr, 1) < 1)
+      |            ^~~~~
+      |            fwrite
+../fzd_stpmic1.c:44:12: warning: implicit declaration of function ‘read’; did you mean ‘fread’? [-Wimplicit-function-declaration]
+   44 |         if(read(stpmic_i2c_dev, value, size) < 0)
+      |            ^~~~
+      |            fread
+../fzd_stpmic1.c:49:16: warning: returning ‘uint16_t *’ {aka ‘short unsigned int *’} from a function with return type ‘uint16_t’ {aka ‘short unsigned int’} makes integer from pointer without a cast [-Wint-conversion]
+   49 |         return value;
+      |                ^~~~~
+../fzd_stpmic1.c: In function ‘read_stpmicVersion’:
+../fzd_stpmic1.c:64:46: warning: passing argument 2 of ‘stpmic_read’ makes pointer from integer without a cast [-Wint-conversion]
+   64 |         stpmic_read(STPMIC_VERSION_REGISTER, buf, 1);
+      |                                              ^~~
+      |                                              |
+      |                                              uint16_t {aka short unsigned int}
+../fzd_stpmic1.c:37:49: note: expected ‘uint16_t *’ {aka ‘short unsigned int *’} but argument is of type ‘uint16_t’ {aka ‘short unsigned int’}
+   37 | uint16_t stpmic_read(uint8_t reg_addr,uint16_t *value,uint8_t size)
+      |                                       ~~~~~~~~~~^~~~~
+Finished building: ../fzd_stpmic1.c
+ 
+Building file: ../main.c
+Invoking: MPU GCC Compiler
+arm-ostl-linux-gnueabi-gcc  -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 --sysroot=/opt/st/stm32mp1/4.2.4-openstlinux-6.1-yocto-mickledore-mpu-v24.06.26/sysroots/cortexa7t2hf-neon-vfpv4-ostl-linux-gnueabi "../main.c" -std=gnu11 -g3 -c -Ipthread -Ilibgpiod -Im -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"main.d" -MT"main.o" -o "main.o"
+../main.c: In function ‘set_schedular_info’:
+../main.c:58:29: warning: implicit declaration of function ‘pthread_setaffinity_np’ [-Wimplicit-function-declaration]
+   58 |                 if ((nRet = pthread_setaffinity_np(pthread_self(), sizeof(cpu_set_t), &cpuset)) != 0)
+      |                             ^~~~~~~~~~~~~~~~~~~~~~
+Finished building: ../main.c
+ 
+Building file: ../zed_rflink.c
+Invoking: MPU GCC Compiler
+arm-ostl-linux-gnueabi-gcc  -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 --sysroot=/opt/st/stm32mp1/4.2.4-openstlinux-6.1-yocto-mickledore-mpu-v24.06.26/sysroots/cortexa7t2hf-neon-vfpv4-ostl-linux-gnueabi "../zed_rflink.c" -std=gnu11 -g3 -c -Ipthread -Ilibgpiod -Im -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"zed_rflink.d" -MT"zed_rflink.o" -o "zed_rflink.o"
+../zed_rflink.c: In function ‘rflinkLoop’:
+../zed_rflink.c:67:71: error: too many arguments to function ‘read_stpmicVersion’
+   67 |                 printf("RF Link Thread %5.2f 0x%x\r\n",get_used_cpu(),read_stpmicVersion(STPMIC_VERSION_REGISTER));
+      |                                                                       ^~~~~~~~~~~~~~~~~~
+In file included from ../zed_rflink.c:38:
+../fzd_stpmic1.h:24:10: note: declared here
+   24 | uint16_t read_stpmicVersion(void);
+      |          ^~~~~~~~~~~~~~~~~~
+make: *** [subdir.mk:50: zed_rflink.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+17:03:49 **** Incremental Build of configuration Debug for project 801.01_CM4 ****
+make -j32 all 
+arm-none-eabi-size  801.01_CM4.elf 
+   text	   data	    bss	    dec	    hex	filename
+  33416	    288	   2172	  35876	   8c24	801.01_CM4.elf
+Finished building: default.size.stdout
+ 
+17:03:49 **** Incremental Build of configuration Default for project fw ****
+make all 
+Wrapper for /home/faruk/st/stm32cubeide_1.16.0/plugins/com.st.stm32cube.ide.mpu.linux.toolchain_2.1.0.202305092038/tools/bin/make
+FIP_DEPLOYDIR_ROOT: /home/faruk/Desktop/projects/801.01/SOFTWARE/801.01_fw/801.01/CA7/fw/Default/../../FIP_artifacts
++ case "$command" in
++ exec make all
+Building file: ../zed_rflink.c
+Invoking: MPU GCC Compiler
+arm-ostl-linux-gnueabi-gcc  -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 --sysroot=/opt/st/stm32mp1/4.2.4-openstlinux-6.1-yocto-mickledore-mpu-v24.06.26/sysroots/cortexa7t2hf-neon-vfpv4-ostl-linux-gnueabi "../zed_rflink.c" -std=gnu11 -g3 -c -Ipthread -Ilibgpiod -Im -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"zed_rflink.d" -MT"zed_rflink.o" -o "zed_rflink.o"
+Finished building: ../zed_rflink.c
+ 
+Building target: fw
+Invoking: MPU GCC Linker
+arm-ostl-linux-gnueabi-gcc  -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 --sysroot=/opt/st/stm32mp1/4.2.4-openstlinux-6.1-yocto-mickledore-mpu-v24.06.26/sysroots/cortexa7t2hf-neon-vfpv4-ostl-linux-gnueabi -o "fw" ./cJSON.o ./fzd_stpmic1.o ./main.o ./zed_cpu_info.o ./zed_gpio.o ./zed_rflink.o ./zed_serial_com.o ./zed_spi.o ./zed_timing.o ./zed_uart.o ./zed_uio.o    -Wl,-Map="fw.map" -Wl,--gc-sections
+Finished building target: fw
+ 
+17:03:51 **** Incremental Build of configuration Default for project fw ****
+make all 
+Wrapper for /home/faruk/st/stm32cubeide_1.16.0/plugins/com.st.stm32cube.ide.mpu.linux.toolchain_2.1.0.202305092038/tools/bin/make
+FIP_DEPLOYDIR_ROOT: /home/faruk/Desktop/projects/801.01/SOFTWARE/801.01_fw/801.01/CA7/fw/Default/../../FIP_artifacts
+make: Nothing to be done for 'all'.
++ case "$command" in
++ exec make all
+17:05:13 **** Incremental Build of configuration Default for project fw ****
+make all 
+Wrapper for /home/faruk/st/stm32cubeide_1.16.0/plugins/com.st.stm32cube.ide.mpu.linux.toolchain_2.1.0.202305092038/tools/bin/make
+FIP_DEPLOYDIR_ROOT: /home/faruk/Desktop/projects/801.01/SOFTWARE/801.01_fw/801.01/CA7/fw/Default/../../FIP_artifacts
++ case "$command" in
++ exec make all
+make: Nothing to be done for 'all'.
+17:06:47 **** Incremental Build of configuration Debug for project 801.01_CM4 ****
+make -j32 all 
+arm-none-eabi-size  801.01_CM4.elf 
+   text	   data	    bss	    dec	    hex	filename
+  33416	    288	   2172	  35876	   8c24	801.01_CM4.elf
+Finished building: default.size.stdout
+ 
+17:06:48 **** Incremental Build of configuration Default for project fw ****
+make all 
+Wrapper for /home/faruk/st/stm32cubeide_1.16.0/plugins/com.st.stm32cube.ide.mpu.linux.toolchain_2.1.0.202305092038/tools/bin/make
+FIP_DEPLOYDIR_ROOT: /home/faruk/Desktop/projects/801.01/SOFTWARE/801.01_fw/801.01/CA7/fw/Default/../../FIP_artifacts
++ case "$command" in
++ exec make all
+Building file: ../fzd_stpmic1.c
+Invoking: MPU GCC Compiler
+arm-ostl-linux-gnueabi-gcc  -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 --sysroot=/opt/st/stm32mp1/4.2.4-openstlinux-6.1-yocto-mickledore-mpu-v24.06.26/sysroots/cortexa7t2hf-neon-vfpv4-ostl-linux-gnueabi "../fzd_stpmic1.c" -std=gnu11 -g3 -c -Ipthread -Ilibgpiod -Im -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"fzd_stpmic1.d" -MT"fzd_stpmic1.o" -o "fzd_stpmic1.o"
+../fzd_stpmic1.c: In function ‘initialize_stpmic’:
+../fzd_stpmic1.c:30:34: warning: implicit declaration of function ‘dup’ [-Wimplicit-function-declaration]
+   30 |                 stpmic_i2c_dev = dup(file);
+      |                                  ^~~
+../fzd_stpmic1.c:31:17: warning: implicit declaration of function ‘close’; did you mean ‘pclose’? [-Wimplicit-function-declaration]
+   31 |                 close(file);
+      |                 ^~~~~
+      |                 pclose
+../fzd_stpmic1.c: At top level:
+../fzd_stpmic1.c:37:10: error: conflicting types for ‘stpmic_read’; have ‘uint16_t(uint8_t,  uint8_t)’ {aka ‘short unsigned int(unsigned char,  unsigned char)’}
+   37 | uint16_t stpmic_read(uint8_t reg_addr,uint8_t size)
+      |          ^~~~~~~~~~~
+In file included from ../fzd_stpmic1.c:9:
+../fzd_stpmic1.h:25:10: note: previous declaration of ‘stpmic_read’ with type ‘uint16_t(uint8_t,  uint16_t *, uint8_t)’ {aka ‘short unsigned int(unsigned char,  short unsigned int *, unsigned char)’}
+   25 | uint16_t stpmic_read(uint8_t reg_addr,uint16_t *value,uint8_t size);
+      |          ^~~~~~~~~~~
+../fzd_stpmic1.c: In function ‘stpmic_read’:
+../fzd_stpmic1.c:41:12: warning: implicit declaration of function ‘write’; did you mean ‘fwrite’? [-Wimplicit-function-declaration]
+   41 |         if(write(stpmic_i2c_dev, &reg_addr, 1) < 1)
+      |            ^~~~~
+      |            fwrite
+../fzd_stpmic1.c:46:12: warning: implicit declaration of function ‘read’; did you mean ‘fread’? [-Wimplicit-function-declaration]
+   46 |         if(read(stpmic_i2c_dev, buf, size) < 0)
+      |            ^~~~
+      |            fread
+../fzd_stpmic1.c:51:16: warning: returning ‘uint8_t *’ {aka ‘unsigned char *’} from a function with return type ‘uint16_t’ {aka ‘short unsigned int’} makes integer from pointer without a cast [-Wint-conversion]
+   51 |         return buf;
+      |                ^~~
+make: *** [subdir.mk:50: fzd_stpmic1.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+17:07:42 **** Incremental Build of configuration Debug for project 801.01_CM4 ****
+make -j32 all 
+arm-none-eabi-size  801.01_CM4.elf 
+   text	   data	    bss	    dec	    hex	filename
+  33416	    288	   2172	  35876	   8c24	801.01_CM4.elf
+Finished building: default.size.stdout
+ 
+17:07:43 **** Incremental Build of configuration Default for project fw ****
+make all 
+Wrapper for /home/faruk/st/stm32cubeide_1.16.0/plugins/com.st.stm32cube.ide.mpu.linux.toolchain_2.1.0.202305092038/tools/bin/make
+FIP_DEPLOYDIR_ROOT: /home/faruk/Desktop/projects/801.01/SOFTWARE/801.01_fw/801.01/CA7/fw/Default/../../FIP_artifacts
++ case "$command" in
++ exec make all
+Building file: ../fzd_stpmic1.c
+Invoking: MPU GCC Compiler
+arm-ostl-linux-gnueabi-gcc  -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 --sysroot=/opt/st/stm32mp1/4.2.4-openstlinux-6.1-yocto-mickledore-mpu-v24.06.26/sysroots/cortexa7t2hf-neon-vfpv4-ostl-linux-gnueabi "../fzd_stpmic1.c" -std=gnu11 -g3 -c -Ipthread -Ilibgpiod -Im -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"fzd_stpmic1.d" -MT"fzd_stpmic1.o" -o "fzd_stpmic1.o"
+../fzd_stpmic1.c: In function ‘initialize_stpmic’:
+../fzd_stpmic1.c:30:34: warning: implicit declaration of function ‘dup’ [-Wimplicit-function-declaration]
+   30 |                 stpmic_i2c_dev = dup(file);
+      |                                  ^~~
+../fzd_stpmic1.c:31:17: warning: implicit declaration of function ‘close’; did you mean ‘pclose’? [-Wimplicit-function-declaration]
+   31 |                 close(file);
+      |                 ^~~~~
+      |                 pclose
+../fzd_stpmic1.c: At top level:
+../fzd_stpmic1.c:37:9: error: conflicting types for ‘stpmic_read’; have ‘uint8_t(uint8_t,  uint8_t)’ {aka ‘unsigned char(unsigned char,  unsigned char)’}
+   37 | uint8_t stpmic_read(uint8_t reg_addr,uint8_t size)
+      |         ^~~~~~~~~~~
+In file included from ../fzd_stpmic1.c:9:
+../fzd_stpmic1.h:25:10: note: previous declaration of ‘stpmic_read’ with type ‘uint16_t(uint8_t,  uint16_t *, uint8_t)’ {aka ‘short unsigned int(unsigned char,  short unsigned int *, unsigned char)’}
+   25 | uint16_t stpmic_read(uint8_t reg_addr,uint16_t *value,uint8_t size);
+      |          ^~~~~~~~~~~
+../fzd_stpmic1.c: In function ‘stpmic_read’:
+../fzd_stpmic1.c:41:12: warning: implicit declaration of function ‘write’; did you mean ‘fwrite’? [-Wimplicit-function-declaration]
+   41 |         if(write(stpmic_i2c_dev, &reg_addr, 1) < 1)
+      |            ^~~~~
+      |            fwrite
+../fzd_stpmic1.c:46:12: warning: implicit declaration of function ‘read’; did you mean ‘fread’? [-Wimplicit-function-declaration]
+   46 |         if(read(stpmic_i2c_dev, buf, size) < 0)
+      |            ^~~~
+      |            fread
+../fzd_stpmic1.c:51:16: warning: returning ‘uint8_t *’ {aka ‘unsigned char *’} from a function with return type ‘uint8_t’ {aka ‘unsigned char’} makes integer from pointer without a cast [-Wint-conversion]
+   51 |         return buf;
+      |                ^~~
+make: *** [subdir.mk:50: fzd_stpmic1.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+17:07:46 **** Incremental Build of configuration Debug for project 801.01_CM4 ****
+make -j32 all 
+arm-none-eabi-size  801.01_CM4.elf 
+   text	   data	    bss	    dec	    hex	filename
+  33416	    288	   2172	  35876	   8c24	801.01_CM4.elf
+Finished building: default.size.stdout
+ 
+17:07:46 **** Incremental Build of configuration Default for project fw ****
+make all 
+Wrapper for /home/faruk/st/stm32cubeide_1.16.0/plugins/com.st.stm32cube.ide.mpu.linux.toolchain_2.1.0.202305092038/tools/bin/make
+FIP_DEPLOYDIR_ROOT: /home/faruk/Desktop/projects/801.01/SOFTWARE/801.01_fw/801.01/CA7/fw/Default/../../FIP_artifacts
++ case "$command" in
++ exec make all
+Building file: ../fzd_stpmic1.c
+Invoking: MPU GCC Compiler
+arm-ostl-linux-gnueabi-gcc  -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 --sysroot=/opt/st/stm32mp1/4.2.4-openstlinux-6.1-yocto-mickledore-mpu-v24.06.26/sysroots/cortexa7t2hf-neon-vfpv4-ostl-linux-gnueabi "../fzd_stpmic1.c" -std=gnu11 -g3 -c -Ipthread -Ilibgpiod -Im -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"fzd_stpmic1.d" -MT"fzd_stpmic1.o" -o "fzd_stpmic1.o"
+../fzd_stpmic1.c: In function ‘initialize_stpmic’:
+../fzd_stpmic1.c:30:34: warning: implicit declaration of function ‘dup’ [-Wimplicit-function-declaration]
+   30 |                 stpmic_i2c_dev = dup(file);
+      |                                  ^~~
+../fzd_stpmic1.c:31:17: warning: implicit declaration of function ‘close’; did you mean ‘pclose’? [-Wimplicit-function-declaration]
+   31 |                 close(file);
+      |                 ^~~~~
+      |                 pclose
+../fzd_stpmic1.c: At top level:
+../fzd_stpmic1.c:37:9: error: conflicting types for ‘stpmic_read’; have ‘uint8_t(uint8_t,  uint8_t)’ {aka ‘unsigned char(unsigned char,  unsigned char)’}
+   37 | uint8_t stpmic_read(uint8_t reg_addr,uint8_t size)
+      |         ^~~~~~~~~~~
+In file included from ../fzd_stpmic1.c:9:
+../fzd_stpmic1.h:25:10: note: previous declaration of ‘stpmic_read’ with type ‘uint16_t(uint8_t,  uint16_t *, uint8_t)’ {aka ‘short unsigned int(unsigned char,  short unsigned int *, unsigned char)’}
+   25 | uint16_t stpmic_read(uint8_t reg_addr,uint16_t *value,uint8_t size);
+      |          ^~~~~~~~~~~
+../fzd_stpmic1.c: In function ‘stpmic_read’:
+../fzd_stpmic1.c:41:12: warning: implicit declaration of function ‘write’; did you mean ‘fwrite’? [-Wimplicit-function-declaration]
+   41 |         if(write(stpmic_i2c_dev, &reg_addr, 1) < 1)
+      |            ^~~~~
+      |            fwrite
+../fzd_stpmic1.c:46:12: warning: implicit declaration of function ‘read’; did you mean ‘fread’? [-Wimplicit-function-declaration]
+   46 |         if(read(stpmic_i2c_dev, buf, size) < 0)
+      |            ^~~~
+      |            fread
+make: *** [subdir.mk:50: fzd_stpmic1.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+17:07:53 **** Incremental Build of configuration Debug for project 801.01_CM4 ****
+make -j32 all 
+arm-none-eabi-size  801.01_CM4.elf 
+   text	   data	    bss	    dec	    hex	filename
+  33416	    288	   2172	  35876	   8c24	801.01_CM4.elf
+Finished building: default.size.stdout
+ 
+17:07:54 **** Incremental Build of configuration Default for project fw ****
+make all 
+Wrapper for /home/faruk/st/stm32cubeide_1.16.0/plugins/com.st.stm32cube.ide.mpu.linux.toolchain_2.1.0.202305092038/tools/bin/make
+FIP_DEPLOYDIR_ROOT: /home/faruk/Desktop/projects/801.01/SOFTWARE/801.01_fw/801.01/CA7/fw/Default/../../FIP_artifacts
++ case "$command" in
++ exec make all
+Building file: ../fzd_stpmic1.c
+Invoking: MPU GCC Compiler
+arm-ostl-linux-gnueabi-gcc  -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 --sysroot=/opt/st/stm32mp1/4.2.4-openstlinux-6.1-yocto-mickledore-mpu-v24.06.26/sysroots/cortexa7t2hf-neon-vfpv4-ostl-linux-gnueabi "../fzd_stpmic1.c" -std=gnu11 -g3 -c -Ipthread -Ilibgpiod -Im -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"fzd_stpmic1.d" -MT"fzd_stpmic1.o" -o "fzd_stpmic1.o"
+In file included from ../fzd_stpmic1.c:9:
+../fzd_stpmic1.h:25:1: error: unknown type name ‘uint87_t’; did you mean ‘uint8_t’?
+   25 | uint87_t stpmic_read(uint8_t reg_addr,uint8_t size);
+      | ^~~~~~~~
+      | uint8_t
+../fzd_stpmic1.c: In function ‘initialize_stpmic’:
+../fzd_stpmic1.c:30:34: warning: implicit declaration of function ‘dup’ [-Wimplicit-function-declaration]
+   30 |                 stpmic_i2c_dev = dup(file);
+      |                                  ^~~
+../fzd_stpmic1.c:31:17: warning: implicit declaration of function ‘close’; did you mean ‘pclose’? [-Wimplicit-function-declaration]
+   31 |                 close(file);
+      |                 ^~~~~
+      |                 pclose
+../fzd_stpmic1.c: At top level:
+../fzd_stpmic1.c:37:9: error: conflicting types for ‘stpmic_read’; have ‘uint8_t(uint8_t,  uint8_t)’ {aka ‘unsigned char(unsigned char,  unsigned char)’}
+   37 | uint8_t stpmic_read(uint8_t reg_addr,uint8_t size)
+      |         ^~~~~~~~~~~
+../fzd_stpmic1.h:25:10: note: previous declaration of ‘stpmic_read’ with type ‘int(uint8_t,  uint8_t)’ {aka ‘int(unsigned char,  unsigned char)’}
+   25 | uint87_t stpmic_read(uint8_t reg_addr,uint8_t size);
+      |          ^~~~~~~~~~~
+../fzd_stpmic1.c: In function ‘stpmic_read’:
+../fzd_stpmic1.c:41:12: warning: implicit declaration of function ‘write’; did you mean ‘fwrite’? [-Wimplicit-function-declaration]
+   41 |         if(write(stpmic_i2c_dev, &reg_addr, 1) < 1)
+      |            ^~~~~
+      |            fwrite
+../fzd_stpmic1.c:46:12: warning: implicit declaration of function ‘read’; did you mean ‘fread’? [-Wimplicit-function-declaration]
+   46 |         if(read(stpmic_i2c_dev, buf, size) < 0)
+      |            ^~~~
+      |            fread
+make: *** [subdir.mk:50: fzd_stpmic1.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+17:07:55 **** Incremental Build of configuration Debug for project 801.01_CM4 ****
+make -j32 all 
+arm-none-eabi-size  801.01_CM4.elf 
+   text	   data	    bss	    dec	    hex	filename
+  33416	    288	   2172	  35876	   8c24	801.01_CM4.elf
+Finished building: default.size.stdout
+ 
+17:07:55 **** Incremental Build of configuration Default for project fw ****
+make all 
+Wrapper for /home/faruk/st/stm32cubeide_1.16.0/plugins/com.st.stm32cube.ide.mpu.linux.toolchain_2.1.0.202305092038/tools/bin/make
+FIP_DEPLOYDIR_ROOT: /home/faruk/Desktop/projects/801.01/SOFTWARE/801.01_fw/801.01/CA7/fw/Default/../../FIP_artifacts
++ case "$command" in
++ exec make all
+Building file: ../fzd_stpmic1.c
+Invoking: MPU GCC Compiler
+arm-ostl-linux-gnueabi-gcc  -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 --sysroot=/opt/st/stm32mp1/4.2.4-openstlinux-6.1-yocto-mickledore-mpu-v24.06.26/sysroots/cortexa7t2hf-neon-vfpv4-ostl-linux-gnueabi "../fzd_stpmic1.c" -std=gnu11 -g3 -c -Ipthread -Ilibgpiod -Im -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"fzd_stpmic1.d" -MT"fzd_stpmic1.o" -o "fzd_stpmic1.o"
+../fzd_stpmic1.c: In function ‘initialize_stpmic’:
+../fzd_stpmic1.c:30:34: warning: implicit declaration of function ‘dup’ [-Wimplicit-function-declaration]
+   30 |                 stpmic_i2c_dev = dup(file);
+      |                                  ^~~
+../fzd_stpmic1.c:31:17: warning: implicit declaration of function ‘close’; did you mean ‘pclose’? [-Wimplicit-function-declaration]
+   31 |                 close(file);
+      |                 ^~~~~
+      |                 pclose
+../fzd_stpmic1.c: In function ‘stpmic_read’:
+../fzd_stpmic1.c:41:12: warning: implicit declaration of function ‘write’; did you mean ‘fwrite’? [-Wimplicit-function-declaration]
+   41 |         if(write(stpmic_i2c_dev, &reg_addr, 1) < 1)
+      |            ^~~~~
+      |            fwrite
+../fzd_stpmic1.c:46:12: warning: implicit declaration of function ‘read’; did you mean ‘fread’? [-Wimplicit-function-declaration]
+   46 |         if(read(stpmic_i2c_dev, buf, size) < 0)
+      |            ^~~~
+      |            fread
+Finished building: ../fzd_stpmic1.c
+ 
+Building file: ../main.c
+Invoking: MPU GCC Compiler
+arm-ostl-linux-gnueabi-gcc  -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 --sysroot=/opt/st/stm32mp1/4.2.4-openstlinux-6.1-yocto-mickledore-mpu-v24.06.26/sysroots/cortexa7t2hf-neon-vfpv4-ostl-linux-gnueabi "../main.c" -std=gnu11 -g3 -c -Ipthread -Ilibgpiod -Im -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"main.d" -MT"main.o" -o "main.o"
+../main.c: In function ‘set_schedular_info’:
+../main.c:58:29: warning: implicit declaration of function ‘pthread_setaffinity_np’ [-Wimplicit-function-declaration]
+   58 |                 if ((nRet = pthread_setaffinity_np(pthread_self(), sizeof(cpu_set_t), &cpuset)) != 0)
+      |                             ^~~~~~~~~~~~~~~~~~~~~~
+Finished building: ../main.c
+ 
+Building file: ../zed_rflink.c
+Invoking: MPU GCC Compiler
+arm-ostl-linux-gnueabi-gcc  -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 --sysroot=/opt/st/stm32mp1/4.2.4-openstlinux-6.1-yocto-mickledore-mpu-v24.06.26/sysroots/cortexa7t2hf-neon-vfpv4-ostl-linux-gnueabi "../zed_rflink.c" -std=gnu11 -g3 -c -Ipthread -Ilibgpiod -Im -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"zed_rflink.d" -MT"zed_rflink.o" -o "zed_rflink.o"
+Finished building: ../zed_rflink.c
+ 
+Building target: fw
+Invoking: MPU GCC Linker
+arm-ostl-linux-gnueabi-gcc  -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 --sysroot=/opt/st/stm32mp1/4.2.4-openstlinux-6.1-yocto-mickledore-mpu-v24.06.26/sysroots/cortexa7t2hf-neon-vfpv4-ostl-linux-gnueabi -o "fw" ./cJSON.o ./fzd_stpmic1.o ./main.o ./zed_cpu_info.o ./zed_gpio.o ./zed_rflink.o ./zed_serial_com.o ./zed_spi.o ./zed_timing.o ./zed_uart.o ./zed_uio.o    -Wl,-Map="fw.map" -Wl,--gc-sections
+Finished building target: fw
+ 
+17:08:00 **** Incremental Build of configuration Default for project fw ****
+make all 
+Wrapper for /home/faruk/st/stm32cubeide_1.16.0/plugins/com.st.stm32cube.ide.mpu.linux.toolchain_2.1.0.202305092038/tools/bin/make
+FIP_DEPLOYDIR_ROOT: /home/faruk/Desktop/projects/801.01/SOFTWARE/801.01_fw/801.01/CA7/fw/Default/../../FIP_artifacts
++ case "$command" in
++ exec make all
+make: Nothing to be done for 'all'.
+17:09:16 **** Incremental Build of configuration Debug for project 801.01_CM4 ****
+make -j32 all 
+arm-none-eabi-size  801.01_CM4.elf 
+   text	   data	    bss	    dec	    hex	filename
+  33416	    288	   2172	  35876	   8c24	801.01_CM4.elf
+Finished building: default.size.stdout
+ 
+17:09:16 **** Incremental Build of configuration Default for project fw ****
+make all 
+Wrapper for /home/faruk/st/stm32cubeide_1.16.0/plugins/com.st.stm32cube.ide.mpu.linux.toolchain_2.1.0.202305092038/tools/bin/make
+FIP_DEPLOYDIR_ROOT: /home/faruk/Desktop/projects/801.01/SOFTWARE/801.01_fw/801.01/CA7/fw/Default/../../FIP_artifacts
++ case "$command" in
++ exec make all
+make: Nothing to be done for 'all'.
+17:09:21 **** Incremental Build of configuration Default for project fw ****
+make all 
+Wrapper for /home/faruk/st/stm32cubeide_1.16.0/plugins/com.st.stm32cube.ide.mpu.linux.toolchain_2.1.0.202305092038/tools/bin/make
+FIP_DEPLOYDIR_ROOT: /home/faruk/Desktop/projects/801.01/SOFTWARE/801.01_fw/801.01/CA7/fw/Default/../../FIP_artifacts
++ case "$command" in
++ exec make all
+make: Nothing to be done for 'all'.
+17:09:51 **** Incremental Build of configuration Debug for project 801.01_CM4 ****
+make -j32 all 
+arm-none-eabi-size  801.01_CM4.elf 
+   text	   data	    bss	    dec	    hex	filename
+  33416	    288	   2172	  35876	   8c24	801.01_CM4.elf
+Finished building: default.size.stdout
+ 
+17:09:52 **** Incremental Build of configuration Default for project fw ****
+make all 
+Wrapper for /home/faruk/st/stm32cubeide_1.16.0/plugins/com.st.stm32cube.ide.mpu.linux.toolchain_2.1.0.202305092038/tools/bin/make
+FIP_DEPLOYDIR_ROOT: /home/faruk/Desktop/projects/801.01/SOFTWARE/801.01_fw/801.01/CA7/fw/Default/../../FIP_artifacts
++ case "$command" in
++ exec make all
+Building file: ../fzd_stpmic1.c
+Invoking: MPU GCC Compiler
+arm-ostl-linux-gnueabi-gcc  -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 --sysroot=/opt/st/stm32mp1/4.2.4-openstlinux-6.1-yocto-mickledore-mpu-v24.06.26/sysroots/cortexa7t2hf-neon-vfpv4-ostl-linux-gnueabi "../fzd_stpmic1.c" -std=gnu11 -g3 -c -Ipthread -Ilibgpiod -Im -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"fzd_stpmic1.d" -MT"fzd_stpmic1.o" -o "fzd_stpmic1.o"
+../fzd_stpmic1.c: In function ‘initialize_stpmic’:
+../fzd_stpmic1.c:30:34: warning: implicit declaration of function ‘dup’ [-Wimplicit-function-declaration]
+   30 |                 stpmic_i2c_dev = dup(file);
+      |                                  ^~~
+../fzd_stpmic1.c:31:17: warning: implicit declaration of function ‘close’; did you mean ‘pclose’? [-Wimplicit-function-declaration]
+   31 |                 close(file);
+      |                 ^~~~~
+      |                 pclose
+../fzd_stpmic1.c: In function ‘stpmic_read’:
+../fzd_stpmic1.c:41:12: warning: implicit declaration of function ‘write’; did you mean ‘fwrite’? [-Wimplicit-function-declaration]
+   41 |         if(write(stpmic_i2c_dev, &reg_addr, 1) < 1)
+      |            ^~~~~
+      |            fwrite
+../fzd_stpmic1.c:46:12: warning: implicit declaration of function ‘read’; did you mean ‘fread’? [-Wimplicit-function-declaration]
+   46 |         if(read(stpmic_i2c_dev, buf, size) < 0)
+      |            ^~~~
+      |            fread
+Finished building: ../fzd_stpmic1.c
+ 
+Building target: fw
+Invoking: MPU GCC Linker
+arm-ostl-linux-gnueabi-gcc  -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 --sysroot=/opt/st/stm32mp1/4.2.4-openstlinux-6.1-yocto-mickledore-mpu-v24.06.26/sysroots/cortexa7t2hf-neon-vfpv4-ostl-linux-gnueabi -o "fw" ./cJSON.o ./fzd_stpmic1.o ./main.o ./zed_cpu_info.o ./zed_gpio.o ./zed_rflink.o ./zed_serial_com.o ./zed_spi.o ./zed_timing.o ./zed_uart.o ./zed_uio.o    -Wl,-Map="fw.map" -Wl,--gc-sections
+Finished building target: fw
+ 
+17:09:54 **** Incremental Build of configuration Default for project fw ****
+make all 
+Wrapper for /home/faruk/st/stm32cubeide_1.16.0/plugins/com.st.stm32cube.ide.mpu.linux.toolchain_2.1.0.202305092038/tools/bin/make
+FIP_DEPLOYDIR_ROOT: /home/faruk/Desktop/projects/801.01/SOFTWARE/801.01_fw/801.01/CA7/fw/Default/../../FIP_artifacts
++ case "$command" in
++ exec make all
+make: Nothing to be done for 'all'.
+17:10:45 **** Incremental Build of configuration Debug for project 801.01_CM4 ****
+make -j32 all 
+arm-none-eabi-size  801.01_CM4.elf 
+   text	   data	    bss	    dec	    hex	filename
+  33416	    288	   2172	  35876	   8c24	801.01_CM4.elf
+Finished building: default.size.stdout
+ 
+17:10:45 **** Incremental Build of configuration Default for project fw ****
+make all 
+Wrapper for /home/faruk/st/stm32cubeide_1.16.0/plugins/com.st.stm32cube.ide.mpu.linux.toolchain_2.1.0.202305092038/tools/bin/make
+FIP_DEPLOYDIR_ROOT: /home/faruk/Desktop/projects/801.01/SOFTWARE/801.01_fw/801.01/CA7/fw/Default/../../FIP_artifacts
++ case "$command" in
++ exec make all
+Building file: ../fzd_stpmic1.c
+Invoking: MPU GCC Compiler
+arm-ostl-linux-gnueabi-gcc  -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 --sysroot=/opt/st/stm32mp1/4.2.4-openstlinux-6.1-yocto-mickledore-mpu-v24.06.26/sysroots/cortexa7t2hf-neon-vfpv4-ostl-linux-gnueabi "../fzd_stpmic1.c" -std=gnu11 -g3 -c -Ipthread -Ilibgpiod -Im -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"fzd_stpmic1.d" -MT"fzd_stpmic1.o" -o "fzd_stpmic1.o"
+../fzd_stpmic1.c: In function ‘initialize_stpmic’:
+../fzd_stpmic1.c:30:34: warning: implicit declaration of function ‘dup’ [-Wimplicit-function-declaration]
+   30 |                 stpmic_i2c_dev = dup(file);
+      |                                  ^~~
+../fzd_stpmic1.c:31:17: warning: implicit declaration of function ‘close’; did you mean ‘pclose’? [-Wimplicit-function-declaration]
+   31 |                 close(file);
+      |                 ^~~~~
+      |                 pclose
+../fzd_stpmic1.c: In function ‘stpmic_read’:
+../fzd_stpmic1.c:41:12: warning: implicit declaration of function ‘write’; did you mean ‘fwrite’? [-Wimplicit-function-declaration]
+   41 |         if(write(stpmic_i2c_dev, &reg_addr, 1) < 1)
+      |            ^~~~~
+      |            fwrite
+../fzd_stpmic1.c:46:12: warning: implicit declaration of function ‘read’; did you mean ‘fread’? [-Wimplicit-function-declaration]
+   46 |         if(read(stpmic_i2c_dev, buf, size) < 0)
+      |            ^~~~
+      |            fread
+../fzd_stpmic1.c: In function ‘log_log’:
+../fzd_stpmic1.c:56:15: error: ‘L’ undeclared (first use in this function)
+   56 |   if (level < L.level)
+      |               ^
+../fzd_stpmic1.c:56:15: note: each undeclared identifier is reported only once for each function it appears in
+../fzd_stpmic1.c:60:3: warning: implicit declaration of function ‘lock’; did you mean ‘lockf’? [-Wimplicit-function-declaration]
+   60 |   lock();
+      |   ^~~~
+      |   lockf
+../fzd_stpmic1.c:63:14: warning: implicit declaration of function ‘time’ [-Wimplicit-function-declaration]
+   63 |   time_t t = time(NULL);
+      |              ^~~~
+../fzd_stpmic1.c:10:1: note: ‘time’ is defined in header ‘<time.h>’; did you forget to ‘#include <time.h>’?
+    9 | #include "fzd_stpmic1.h"
+  +++ |+#include <time.h>
+   10 | 
+../fzd_stpmic1.c:64:19: warning: implicit declaration of function ‘localtime’ [-Wimplicit-function-declaration]
+   64 |   struct tm *lt = localtime(&t);
+      |                   ^~~~~~~~~
+../fzd_stpmic1.c:64:19: note: ‘localtime’ is defined in header ‘<time.h>’; did you forget to ‘#include <time.h>’?
+../fzd_stpmic1.c:64:19: warning: initialization of ‘struct tm *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+../fzd_stpmic1.c:71:9: warning: implicit declaration of function ‘strftime’ [-Wimplicit-function-declaration]
+   71 |     buf[strftime(buf, sizeof(buf), "%H:%M:%S", lt)] = '\0';
+      |         ^~~~~~~~
+../fzd_stpmic1.c:71:9: note: include ‘<time.h>’ or provide a declaration of ‘strftime’
+../fzd_stpmic1.c:71:9: warning: incompatible implicit declaration of built-in function ‘strftime’ [-Wbuiltin-declaration-mismatch]
+../fzd_stpmic1.c:71:9: note: include ‘<time.h>’ or provide a declaration of ‘strftime’
+../fzd_stpmic1.c:76:49: error: ‘level_names’ undeclared (first use in this function)
+   76 |         fprintf(stderr, "%s %-5s %s:%d: ", buf, level_names[level], file, line);
+      |                                                 ^~~~~~~~~~~
+../fzd_stpmic1.c:79:5: warning: implicit declaration of function ‘va_start’ [-Wimplicit-function-declaration]
+   79 |     va_start(args, fmt);
+      |     ^~~~~~~~
+../fzd_stpmic1.c:81:5: warning: implicit declaration of function ‘va_end’ [-Wimplicit-function-declaration]
+   81 |     va_end(args);
+      |     ^~~~~~
+../fzd_stpmic1.c:91:9: warning: incompatible implicit declaration of built-in function ‘strftime’ [-Wbuiltin-declaration-mismatch]
+   91 |     buf[strftime(buf, sizeof(buf), "%Y-%m-%d %H:%M:%S", lt)] = '\0';
+      |         ^~~~~~~~
+../fzd_stpmic1.c:91:9: note: include ‘<time.h>’ or provide a declaration of ‘strftime’
+../fzd_stpmic1.c:100:3: warning: implicit declaration of function ‘unlock’ [-Wimplicit-function-declaration]
+  100 |   unlock();
+      |   ^~~~~~
+make: *** [subdir.mk:50: fzd_stpmic1.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+17:11:20 **** Incremental Build of configuration Debug for project 801.01_CM4 ****
+make -j32 all 
+arm-none-eabi-size  801.01_CM4.elf 
+   text	   data	    bss	    dec	    hex	filename
+  33416	    288	   2172	  35876	   8c24	801.01_CM4.elf
+Finished building: default.size.stdout
+ 
+17:11:20 **** Incremental Build of configuration Default for project fw ****
+make all 
+Wrapper for /home/faruk/st/stm32cubeide_1.16.0/plugins/com.st.stm32cube.ide.mpu.linux.toolchain_2.1.0.202305092038/tools/bin/make
+FIP_DEPLOYDIR_ROOT: /home/faruk/Desktop/projects/801.01/SOFTWARE/801.01_fw/801.01/CA7/fw/Default/../../FIP_artifacts
++ case "$command" in
++ exec make all
+Building file: ../fzd_stpmic1.c
+Invoking: MPU GCC Compiler
+arm-ostl-linux-gnueabi-gcc  -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 --sysroot=/opt/st/stm32mp1/4.2.4-openstlinux-6.1-yocto-mickledore-mpu-v24.06.26/sysroots/cortexa7t2hf-neon-vfpv4-ostl-linux-gnueabi "../fzd_stpmic1.c" -std=gnu11 -g3 -c -Ipthread -Ilibgpiod -Im -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"fzd_stpmic1.d" -MT"fzd_stpmic1.o" -o "fzd_stpmic1.o"
+../fzd_stpmic1.c: In function ‘initialize_stpmic’:
+../fzd_stpmic1.c:30:34: warning: implicit declaration of function ‘dup’ [-Wimplicit-function-declaration]
+   30 |                 stpmic_i2c_dev = dup(file);
+      |                                  ^~~
+../fzd_stpmic1.c:31:17: warning: implicit declaration of function ‘close’; did you mean ‘pclose’? [-Wimplicit-function-declaration]
+   31 |                 close(file);
+      |                 ^~~~~
+      |                 pclose
+../fzd_stpmic1.c: In function ‘stpmic_read’:
+../fzd_stpmic1.c:41:12: warning: implicit declaration of function ‘write’; did you mean ‘fwrite’? [-Wimplicit-function-declaration]
+   41 |         if(write(stpmic_i2c_dev, &reg_addr, 1) < 1)
+      |            ^~~~~
+      |            fwrite
+../fzd_stpmic1.c:46:12: warning: implicit declaration of function ‘read’; did you mean ‘fread’? [-Wimplicit-function-declaration]
+   46 |         if(read(stpmic_i2c_dev, buf, size) < 0)
+      |            ^~~~
+      |            fread
+Finished building: ../fzd_stpmic1.c
+ 
+Building target: fw
+Invoking: MPU GCC Linker
+arm-ostl-linux-gnueabi-gcc  -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 --sysroot=/opt/st/stm32mp1/4.2.4-openstlinux-6.1-yocto-mickledore-mpu-v24.06.26/sysroots/cortexa7t2hf-neon-vfpv4-ostl-linux-gnueabi -o "fw" ./cJSON.o ./fzd_stpmic1.o ./main.o ./zed_cpu_info.o ./zed_gpio.o ./zed_rflink.o ./zed_serial_com.o ./zed_spi.o ./zed_timing.o ./zed_uart.o ./zed_uio.o    -Wl,-Map="fw.map" -Wl,--gc-sections
+Finished building target: fw
+ 
+17:11:35 **** Incremental Build of configuration Debug for project 801.01_CM4 ****
+make -j32 all 
+arm-none-eabi-size  801.01_CM4.elf 
+   text	   data	    bss	    dec	    hex	filename
+  33416	    288	   2172	  35876	   8c24	801.01_CM4.elf
+Finished building: default.size.stdout
+ 
+17:11:35 **** Incremental Build of configuration Default for project fw ****
+make all 
+Wrapper for /home/faruk/st/stm32cubeide_1.16.0/plugins/com.st.stm32cube.ide.mpu.linux.toolchain_2.1.0.202305092038/tools/bin/make
+FIP_DEPLOYDIR_ROOT: /home/faruk/Desktop/projects/801.01/SOFTWARE/801.01_fw/801.01/CA7/fw/Default/../../FIP_artifacts
++ case "$command" in
++ exec make all
+Building file: ../fzd_stpmic1.c
+Invoking: MPU GCC Compiler
+arm-ostl-linux-gnueabi-gcc  -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 --sysroot=/opt/st/stm32mp1/4.2.4-openstlinux-6.1-yocto-mickledore-mpu-v24.06.26/sysroots/cortexa7t2hf-neon-vfpv4-ostl-linux-gnueabi "../fzd_stpmic1.c" -std=gnu11 -g3 -c -Ipthread -Ilibgpiod -Im -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"fzd_stpmic1.d" -MT"fzd_stpmic1.o" -o "fzd_stpmic1.o"
+../fzd_stpmic1.c: In function ‘initialize_stpmic’:
+../fzd_stpmic1.c:30:34: warning: implicit declaration of function ‘dup’ [-Wimplicit-function-declaration]
+   30 |                 stpmic_i2c_dev = dup(file);
+      |                                  ^~~
+../fzd_stpmic1.c:31:17: warning: implicit declaration of function ‘close’; did you mean ‘pclose’? [-Wimplicit-function-declaration]
+   31 |                 close(file);
+      |                 ^~~~~
+      |                 pclose
+../fzd_stpmic1.c: In function ‘stpmic_read’:
+../fzd_stpmic1.c:41:12: warning: implicit declaration of function ‘write’; did you mean ‘fwrite’? [-Wimplicit-function-declaration]
+   41 |         if(write(stpmic_i2c_dev, &reg_addr, 1) < 1)
+      |            ^~~~~
+      |            fwrite
+../fzd_stpmic1.c:46:12: warning: implicit declaration of function ‘read’; did you mean ‘fread’? [-Wimplicit-function-declaration]
+   46 |         if(read(stpmic_i2c_dev, buf, size) < 0)
+      |            ^~~~
+      |            fread
+Finished building: ../fzd_stpmic1.c
+ 
+Building file: ../main.c
+Invoking: MPU GCC Compiler
+arm-ostl-linux-gnueabi-gcc  -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 --sysroot=/opt/st/stm32mp1/4.2.4-openstlinux-6.1-yocto-mickledore-mpu-v24.06.26/sysroots/cortexa7t2hf-neon-vfpv4-ostl-linux-gnueabi "../main.c" -std=gnu11 -g3 -c -Ipthread -Ilibgpiod -Im -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"main.d" -MT"main.o" -o "main.o"
+../main.c: In function ‘set_schedular_info’:
+../main.c:58:29: warning: implicit declaration of function ‘pthread_setaffinity_np’ [-Wimplicit-function-declaration]
+   58 |                 if ((nRet = pthread_setaffinity_np(pthread_self(), sizeof(cpu_set_t), &cpuset)) != 0)
+      |                             ^~~~~~~~~~~~~~~~~~~~~~
+Finished building: ../main.c
+ 
+Building file: ../zed_rflink.c
+Invoking: MPU GCC Compiler
+arm-ostl-linux-gnueabi-gcc  -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 --sysroot=/opt/st/stm32mp1/4.2.4-openstlinux-6.1-yocto-mickledore-mpu-v24.06.26/sysroots/cortexa7t2hf-neon-vfpv4-ostl-linux-gnueabi "../zed_rflink.c" -std=gnu11 -g3 -c -Ipthread -Ilibgpiod -Im -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"zed_rflink.d" -MT"zed_rflink.o" -o "zed_rflink.o"
+Finished building: ../zed_rflink.c
+ 
+Building target: fw
+Invoking: MPU GCC Linker
+arm-ostl-linux-gnueabi-gcc  -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 --sysroot=/opt/st/stm32mp1/4.2.4-openstlinux-6.1-yocto-mickledore-mpu-v24.06.26/sysroots/cortexa7t2hf-neon-vfpv4-ostl-linux-gnueabi -o "fw" ./cJSON.o ./fzd_stpmic1.o ./main.o ./zed_cpu_info.o ./zed_gpio.o ./zed_rflink.o ./zed_serial_com.o ./zed_spi.o ./zed_timing.o ./zed_uart.o ./zed_uio.o    -Wl,-Map="fw.map" -Wl,--gc-sections
+Finished building target: fw
+ 
+17:11:42 **** Incremental Build of configuration Debug for project 801.01_CM4 ****
+make -j32 all 
+arm-none-eabi-size  801.01_CM4.elf 
+   text	   data	    bss	    dec	    hex	filename
+  33416	    288	   2172	  35876	   8c24	801.01_CM4.elf
+Finished building: default.size.stdout
+ 
+17:11:42 **** Incremental Build of configuration Default for project fw ****
+make all 
+Wrapper for /home/faruk/st/stm32cubeide_1.16.0/plugins/com.st.stm32cube.ide.mpu.linux.toolchain_2.1.0.202305092038/tools/bin/make
+FIP_DEPLOYDIR_ROOT: /home/faruk/Desktop/projects/801.01/SOFTWARE/801.01_fw/801.01/CA7/fw/Default/../../FIP_artifacts
++ case "$command" in
++ exec make all
+make: Nothing to be done for 'all'.

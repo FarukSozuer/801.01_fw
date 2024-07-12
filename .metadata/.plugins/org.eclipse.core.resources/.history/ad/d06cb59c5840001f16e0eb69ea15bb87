@@ -1,0 +1,115 @@
+/*
+ * fzd_stpmic1.c
+ *
+ *  Created on: Jul 10, 2024
+ *      Author: faruk
+ */
+
+
+#include "fzd_stpmic1.h"
+
+int32_t stpmic_i2c_dev;
+
+void initialize_stpmic(void)
+{
+	const char file_name[] = "/dev/i2c-2";
+	int file;
+
+	if ((file = open(file_name,O_RDWR))<0)
+	{
+		printf("Failed i2c bus \r\n");
+		exit(1);
+	}
+	if (ioctl(file,I2C_SLAVE,STPMIC_DEVICE_ADDRESS) < 0)
+	{
+		printf("Failed to acquire bus access or talk to device\r\n");
+		exit(1);
+	}
+	else
+	{
+		stpmic_i2c_dev = dup(file);
+		close(file);
+	}
+}
+
+
+
+uint8_t stpmic_read(uint8_t reg_addr,uint8_t size)
+{
+	uint8_t buf[2] = {0};
+
+	if(write(stpmic_i2c_dev, &reg_addr, 1) < 1)
+	{
+		printf("Failed to acquire bus access or talk to device\r\n");
+		exit(1);
+	}
+	if(read(stpmic_i2c_dev, buf, size) < 0)
+	{
+		printf("Failed to acquire bus access or talk to device\r\n");
+		exit(1);
+	}
+	return buf[0];
+}
+
+void log_log(int level, const char *file, int line, const char *fmt, ...)
+{
+  if (level < L.level)
+	  return;
+
+  /* Acquire lock */
+  lock();
+
+  /* Get current time */
+  time_t t = time(NULL);
+  struct tm *lt = localtime(&t);
+
+  /* Log to stderr */
+  if (!L.quiet)
+  {
+    va_list args;
+    char buf[16];
+    buf[strftime(buf, sizeof(buf), "%H:%M:%S", lt)] = '\0';
+
+    #ifdef LOG_USE_COLOR
+    	fprintf(stderr, "%s %s%-5s\x1b[0m \x1b[90m%s:%d:\x1b[0m ", buf, level_colors[level], level_names[level], file, line);
+	#else
+    	fprintf(stderr, "%s %-5s %s:%d: ", buf, level_names[level], file, line);
+	#endif
+
+    va_start(args, fmt);
+    vfprintf(stderr, fmt, args);
+    va_end(args);
+    fprintf(stderr, "\n");
+    fflush(stderr);
+  }
+
+  /* Log to file */
+  if (L.fp)
+  {
+    va_list args;
+    char buf[32];
+    buf[strftime(buf, sizeof(buf), "%Y-%m-%d %H:%M:%S", lt)] = '\0';
+    fprintf(L.fp, "%s %-5s %s:%d: ", buf, level_names[level], file, line);
+    va_start(args, fmt);
+    vfprintf(L.fp, fmt, args);
+    va_end(args);
+    fprintf(L.fp, "\n");
+    fflush(L.fp);
+  }
+  /* Release lock */
+  unlock();
+}
+/*
+ * @brief read_stpmicVersion
+ *
+ * @param reg_add
+ *
+ * @return buf
+ * */
+uint16_t read_stpmicVersion(void)
+{
+	uint8_t version = 0;
+
+	version = stpmic_read(STPMIC_VERSION_REGISTER,1);
+	return version;
+}

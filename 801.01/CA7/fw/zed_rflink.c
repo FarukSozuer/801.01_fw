@@ -53,8 +53,6 @@ void* rflinkLoop(void* args)
 {
 	set_schedular_info((PS_THREAD_ATTR)args);
 
-	struct gpiohandle_request req;
-	struct gpiohandle_data data;
 	char chrdev_name[20];
 
 	strcpy(chrdev_name, "/dev/gpiochip0");
@@ -65,8 +63,8 @@ void* rflinkLoop(void* args)
 	while(1)
 	{
 		counter++;
-		read_stpmicVersion(STPMIC_VERSION_REGISTER);
-		printf("RF Link Thread %5.2f\r\n",get_used_cpu());
+
+		printf("RF Link Thread %5.2f 0x%x\r\n",get_used_cpu(),read_stpmicVersion());
 		sleep(1);
 	}
 }

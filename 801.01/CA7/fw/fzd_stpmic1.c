@@ -8,13 +8,12 @@
 
 #include "fzd_stpmic1.h"
 
-int32_t stpmic_i2c_dev;
+int stpmic_i2c_dev;
 
 void initialize_stpmic(void)
 {
 	const char file_name[] = "/dev/i2c-2";
 	int file;
-
 
 	if ((file = open(file_name,O_RDWR))<0)
 	{
@@ -34,17 +33,42 @@ void initialize_stpmic(void)
 }
 
 
-void read_stpmicVersion(uint8_t reg_add)
+/*
+ * @brief stpmic_read
+ *
+ * @param reg_addr
+ *
+ * @return buf
+ * */
+uint8_t stpmic_read(uint8_t reg_addr,uint8_t size)
 {
-	uint8_t buf[5] = {0};
+	uint8_t buf[2] = {0};
 
-	if(write(stpmic_i2c_dev, &reg_add, 1) < 1)
+	if(write(stpmic_i2c_dev, &reg_addr, 1) < 1)
 	{
-
+		printf("Failed to acquire bus access or talk to device\r\n");
+		exit(1);
 	}
-	if(read(stpmic_i2c_dev, buf, 1) < 0)
+	if(read(stpmic_i2c_dev, buf, size) < 0)
 	{
-
+		printf("Failed to acquire bus access or talk to device\r\n");
+		exit(1);
 	}
+	return buf[0];
+}
 
+
+/*
+ * @brief read_stpmicVersion
+ *
+ * @param reg_add
+ *
+ * @return buf
+ * */
+uint16_t read_stpmicVersion(void)
+{
+	uint8_t version = 0;
+
+	version = stpmic_read(STPMIC_VERSION_REGISTER,1);
+	return version;
 }

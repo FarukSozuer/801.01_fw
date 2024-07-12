@@ -18,9 +18,10 @@
 #define STPMIC_DEVICE_ADDRESS 0x28
 #define STPMIC_VERSION_REGISTER 0x06
 
-extern int32_t stpmic_i2c_dev;
+extern int stpmic_i2c_dev;
 
 void initialize_stpmic(void);
-void read_stpmicVersion(uint8_t reg_add);
+uint16_t read_stpmicVersion(void);
+uint8_t stpmic_read(uint8_t reg_addr,uint8_t size);
 
 #endif /* FZD_STPMIC1_H_ */
