@@ -1,10 +1,10 @@
-17:11:42 **** Incremental Build of configuration Debug for project 801.01_CM4 ****
+19:00:39 **** Incremental Build of configuration Debug for project 801.01_CM4 ****
 make -j32 all 
 arm-none-eabi-size  801.01_CM4.elf 
    text	   data	    bss	    dec	    hex	filename
-  33416	    288	   2172	  35876	   8c24	801.01_CM4.elf
+  10672	     12	   1628	  12312	   3018	801.01_CM4.elf
 Finished building: default.size.stdout
  
 
-17:11:42 Build Finished. 0 errors, 0 warnings. (took 114ms)
+19:00:39 Build Finished. 0 errors, 0 warnings. (took 126ms)
 

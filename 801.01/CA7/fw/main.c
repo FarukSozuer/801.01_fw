@@ -26,14 +26,15 @@
 
 
 #include "main.h"
-#include "zed_gpio.h"
-#include "zed_uart.h"
-#include "zed_common_def.h"
-#include "zed_cpu_info.h"
-#include "zed_rflink.h"
-#include "zed_serial_com.h"
 #include "libserialport.h"
+
+#include "fzd_common_def.h"
+#include "fzd_cpu_info.h"
+#include "fzd_gpio.h"
+#include "fzd_rflink.h"
+#include "fzd_serial_com.h"
 #include "fzd_stpmic1.h"
+#include "fzd_uart.h"
 
 
 /*

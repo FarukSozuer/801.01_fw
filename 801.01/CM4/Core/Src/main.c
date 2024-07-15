@@ -18,9 +18,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "dma.h"
 #include "ipcc.h"
-#include "openamp.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
@@ -51,7 +49,6 @@
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
-void PeriphCommonClock_Config(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -86,18 +83,10 @@ int main(void)
     /* Configure the system clock */
     SystemClock_Config();
   }
-
-  if(IS_ENGINEERING_BOOT_MODE())
-  {
-    /* Configure the peripherals common clocks */
-    PeriphCommonClock_Config();
-  }
   else
   {
     /* IPCC initialisation */
     MX_IPCC_Init();
-    /* OpenAmp initialisation ---------------------------------*/
-    MX_OPENAMP_Init(RPMSG_REMOTE, NULL);
   }
 
   /* USER CODE BEGIN SysInit */
@@ -106,7 +95,6 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_DMA_Init();
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */
@@ -139,12 +127,10 @@ void SystemClock_Config(void)
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
   */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_CSI|RCC_OSCILLATORTYPE_HSI
-                              |RCC_OSCILLATORTYPE_HSE|RCC_OSCILLATORTYPE_LSE;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_CSI|RCC_OSCILLATORTYPE_HSE
+                              |RCC_OSCILLATORTYPE_LSE;
   RCC_OscInitStruct.HSEState = RCC_HSE_BYPASS_DIG;
   RCC_OscInitStruct.LSEState = RCC_LSE_ON;
-  RCC_OscInitStruct.HSIState = RCC_HSI_ON;
-  RCC_OscInitStruct.HSIDivValue = RCC_HSI_DIV1;
   RCC_OscInitStruct.CSIState = RCC_CSI_ON;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_NONE;
   RCC_OscInitStruct.PLL2.PLLState = RCC_PLL_ON;
@@ -166,16 +152,7 @@ void SystemClock_Config(void)
   RCC_OscInitStruct.PLL3.PLLRGE = RCC_PLL3IFRANGE_1;
   RCC_OscInitStruct.PLL3.PLLFRACV = 6660;
   RCC_OscInitStruct.PLL3.PLLMODE = RCC_PLL_FRACTIONAL;
-  RCC_OscInitStruct.PLL4.PLLState = RCC_PLL_ON;
-  RCC_OscInitStruct.PLL4.PLLSource = RCC_PLL4SOURCE_HSE;
-  RCC_OscInitStruct.PLL4.PLLM = 4;
-  RCC_OscInitStruct.PLL4.PLLN = 99;
-  RCC_OscInitStruct.PLL4.PLLP = 6;
-  RCC_OscInitStruct.PLL4.PLLQ = 8;
-  RCC_OscInitStruct.PLL4.PLLR = 8;
-  RCC_OscInitStruct.PLL4.PLLRGE = RCC_PLL4IFRANGE_0;
-  RCC_OscInitStruct.PLL4.PLLFRACV = 0;
-  RCC_OscInitStruct.PLL4.PLLMODE = RCC_PLL_INTEGER;
+  RCC_OscInitStruct.PLL4.PLLState = RCC_PLL_NONE;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
   {
     Error_Handler();
@@ -205,24 +182,6 @@ void SystemClock_Config(void)
   /** Set the HSE division factor for RTC clock
   */
   __HAL_RCC_RTC_HSEDIV(24);
-}
-
-/**
-  * @brief Peripherals Common Clock Configuration
-  * @retval None
-  */
-void PeriphCommonClock_Config(void)
-{
-  RCC_PeriphCLKInitTypeDef PeriphClkInit = {0};
-
-  /** Initializes the common periph clock
-  */
-  PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_CKPER;
-  PeriphClkInit.CkperClockSelection = RCC_CKPERCLKSOURCE_HSE;
-  if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
-  {
-    Error_Handler();
-  }
 }
 
 /* USER CODE BEGIN 4 */

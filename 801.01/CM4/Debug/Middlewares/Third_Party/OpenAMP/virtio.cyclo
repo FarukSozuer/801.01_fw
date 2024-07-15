@@ -1,4 +1,0 @@
-/home/faruk/Desktop/projects/801.01/SOFTWARE/801.01_fw/801.01/Middlewares/Third_Party/OpenAMP/open-amp/lib/virtio/virtio.c:42:13:virtio_dev_name	3
-/home/faruk/Desktop/projects/801.01/SOFTWARE/801.01_fw/801.01/Middlewares/Third_Party/OpenAMP/open-amp/lib/virtio/virtio.c:54:20:virtio_feature_name	5
-/home/faruk/Desktop/projects/801.01/SOFTWARE/801.01_fw/801.01/Middlewares/Third_Party/OpenAMP/open-amp/lib/virtio/virtio.c:75:6:virtio_describe	1
-/home/faruk/Desktop/projects/801.01/SOFTWARE/801.01_fw/801.01/Middlewares/Third_Party/OpenAMP/open-amp/lib/virtio/virtio.c:86:5:virtio_create_virtqueues	4
